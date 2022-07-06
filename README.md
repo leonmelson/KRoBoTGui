@@ -1,2 +1,2 @@
 # KRoBoTGui
-KRoBoT Gui
+Front End for KRoBoT Api
