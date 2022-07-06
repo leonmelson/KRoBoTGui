@@ -1,0 +1,1286 @@
+input[type=text], select, input[type=password], label, input[type=date], input[type=number], input[type=datetime-local]{
+    width: 100px;
+    padding: 5px 5px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 18px;
+}
+input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+}
+input[type=submit] {
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);
+    width: 300px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+input[type=submit]:hover {
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);
+    width: 300px;
+    background-color: darkred;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+input[type=text].terminaltextype {
+    width: 890px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 20px;
+}
+div.RequistedAction {    
+    border: 2px solid gray;
+    font-size: 18px;
+    font-weight: bold;
+    width: 934px;
+    margin-bottom: 1px;
+}
+div.RequistedAction a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: lightgray;
+}
+div.RequistedAction a:hover {
+  background-color: lightseagreen;
+}
+div.ErrorNotification {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: lightgoldenrodyellow;
+    width: 934px;
+    height: 65px;
+    color: black;
+}
+div.BOTTOMCommands {
+    width: 934px;
+}
+div.MainHeading {
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    background-color: gray;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -3px 2px black;
+    color: #4CAF50;
+    text-align: right;
+}
+div.BusyBox {
+    display: none;
+    z-index: 100;
+    position: fixed;
+    width: 390px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    margin: -200px 0 0 -195px;
+
+}
+div.ESTOP {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    vertical-align: middle;
+    border-radius: 10px;
+    width: 390px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: -3px 2px black;
+    color: white;
+    background: red;
+}
+div.ESTOP:hover{
+    font-size: 50px;
+    text-shadow: -3px 2px yellow;
+}
+div.ESTOP:active{
+    font-size: 30px;
+    text-shadow: -3px 2px green;
+    background: darkred;
+}
+div.BusyBoxControlBox{
+    border-radius: 10px;
+    min-height: 100px;
+    min-width: 390px;
+}
+div.BusyBoxControl{
+    float: left;
+    border: 2px solid darkred;
+    border-radius: 10px;
+    height: 98px;
+    width: 126px;
+    background: #4CAF50;
+}
+div.BusyBoxControlHeading{
+    vertical-align: middle;
+    margin: auto;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    text-shadow: -1px 1px lightgoldenrodyellow;
+    color: black;
+    line-height: 20px;
+    height: 25px;
+    width: 122px;
+}
+div.BusyBoxControlContent{
+    /* opacity: 0.3; */
+    float: left;
+    vertical-align: middle;
+    margin: auto;
+    border-radius: 10px;
+    padding-top: 5px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: -1px 1px 1px black;
+    color: white;
+    line-height: 50px;
+    height: 55px;
+    width: 122px;
+}
+div.BusyBoxControlButton{
+    opacity: 0.2;
+    position: absolute;
+    display: flex;
+}
+div.BusyBoxControlButton:hover{
+    opacity: 0.6;
+}
+div.BusyBoxPauseResume{
+    float: left;
+    border-radius: 10px;
+    height: 98px;
+    width: 386px;
+}
+div.BusyBoxPauseResumeButton{
+    /* opacity: 0.8; */
+    position: absolute;
+    display: flex;
+}
+div.busypause{
+    vertical-align: middle;
+    margin: auto; 
+    border: 2px solid red;
+    border-radius: 10px;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: -1px 1px 1px red;
+    color: black;
+    background-color: green;
+    line-height: 89px;
+    height: 94px;
+    width: 120px;
+}
+div.busypause:hover{
+    text-shadow: -1px 1px 1px yellow;
+    border: 2px solid yellow;
+    font-size: 28px;
+}
+div.busypause:active{
+    background-color: green;
+}
+div.busyresume{
+    vertical-align: middle;
+    margin: auto; 
+    border: 2px solid red;
+    border-radius: 10px;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: -1px 1px 1px red;
+    color: black;
+    background-color: yellow;
+    line-height: 89px;
+    height: 94px;
+    width: 120px;
+}
+div.busyresume:hover{
+    text-shadow: -1px 1px 1px blue;
+    border: 2px solid blue;
+    font-size: 28px;
+}
+div.busyresume:active{
+    background-color: green;
+}
+div.busycancel{
+    vertical-align: middle;
+    margin: auto; 
+    border: 2px solid red;
+    border-radius: 10px;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: -1px 1px 1px red;
+    color: black;
+    background-color: lightgreen;
+    line-height: 89px;
+    height: 94px;
+    width: 120px;
+}
+div.busycancel:hover{
+    text-shadow: -1px 1px 1px red;
+    border: 2px solid red;
+    font-size: 28px;
+}
+div.busycancel:active{
+    background-color: green;
+}
+div.busypsfmin, div.busypsfplus, div.busyesfmin, div.busyesfplus, div.busyfsmin, div.busyfsplus, div.busybtmin, div.busybtplus, div.busyetmin, div.busyetplus, div.busyzomin, div.busyzoplus{
+    vertical-align: middle;
+    margin: auto; 
+    border: 2px solid red;
+    border-radius: 10px;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: -1px 1px 1px red;
+    color: white;
+    background-color: black;
+    line-height: 55px;
+    height: 60px;
+    width: 54px;
+}
+div.busypsfmin:hover, div.busypsfplus:hover, div.busyesfmin:hover, div.busyesfplus:hover, div.busyfsmin:hover, div.busyfsplus:hover, div.busybtmin:hover, div.busybtplus:hover, div.busyetmin:hover, div.busyetplus:hover, div.busyzomin:hover, div.busyzoplus:hover{
+    background-color: blue;
+}
+div.busypsfmin:active, div.busypsfplus:active, div.busyesfmin:active, div.busyesfplus:active, div.busyfsmin:active, div.busyfsplus:active, div.busybtmin:active, div.busybtplus:active, div.busyetmin:active, div.busyetplus:active, div.busyzomin:active, div.busyzoplus:active{
+    background-color: lightgoldenrodyellow;
+}
+div.MenuContainer {
+    border-top: 1px solid black;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    list-style-type: none;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: gray;
+    width: 914px;
+    height: 65px;
+    color: black;
+}
+
+div.MenuTabs {
+    border-right: 2px solid gray;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+div.MenuTabs a {
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px; 
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: lightgray;
+}
+div.MenuTabs a:hover {
+    background-color: lightseagreen;
+}
+div.TerminalOutput {
+	overflow:auto;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    padding-left: 20px;
+    height: 450px;
+    text-align: left;
+    background-color: black;
+    font-size: 17px;
+    font-weight: 200;
+    color: white;
+    width: 910px;
+}
+div.TerminalOutputMini {
+	overflow:auto;
+    border-radius: 25px;
+    padding-left: 20px;
+    height: 290px;
+    width: 490px;
+    text-align: left;
+    background-color: black;
+    font-size: 11px;
+    font-weight: 100;
+    color: white;
+    float:left;
+}
+div.IframeDIV {
+    border-radius: 25px;
+    /* height: 290px;
+    width: 395px; */
+    float:left;
+    /* -webkit-overflow-scrolling: touch;
+    overflow-y: scroll; */
+}
+iframe.tinyfileiframe {
+    border-radius: 25px;
+    margin-left: 10px;
+    height: 290px;
+    width: 395px;
+    float:left;
+    /* border-radius: 25px;
+    height: 100%;
+    width: 100%; */
+}
+div.TerminalExtra a {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    border: 1px solid yellow;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #4CAF50;
+    width: 130px;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);   
+}
+div.TerminalExtra a:hover {
+  background-color: lightseagreen;
+}
+div.FileManagerMain {
+    overflow: scroll;
+    border-radius: 25px;
+    padding-left: 20px;
+    height: 290px;
+    width: 380px;
+    text-align: left;
+    background-color: gray;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: -1px 1px black;
+    color: green;
+    float:left;
+}
+div.FileManagerLinks {
+    border: 1px solid black;
+    text-align: left;
+    background-color: #4CAF50;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 0px black;
+    color: black;
+    width: 340px;
+}
+div.FileManagerLinks a {
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+    background-color: #4CAF50;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+div.FileManagerLinks a:hover {
+    padding-left: 20px;
+    text-align: left;
+    background-color: lightgreen;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+div.FileManagerFiles {
+    border: 1px solid black;
+    text-align: left;
+    background-color: lightyellow;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0px 0px black;
+    color: black;
+    width: 340px;
+}
+div.FileManagerFiles a {
+    border: 1px solid black;
+    text-align: left;
+    background-color: lightyellow;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+div.FileManagerFiles a:hover {
+    padding-left: 20px;
+    text-align: left;
+    background-color: lightgreen;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+div.Files {
+    display:inline-block;
+    border: 1px solid black;
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: white;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+
+}
+div.TerminalDisplay {
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    padding-left: 20px;
+    background-color: black;
+    height: 450px;
+    text-align: left;
+    width: 910px;
+}
+div.TerminalType {
+    border-bottom: 2px solid gray;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    padding-left: 20px;
+    background-color: black;
+    height: 50px;
+    text-align: left;
+    color: white;
+    width: 910px;
+}
+div.TerminalType input[type=text] {
+    text-align: left;
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    height: 35px;
+}
+div.TerminalHead {
+    border-bottom: 2px solid gray;
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    padding-left: 20px;
+    background-color: black;
+    height: 20px;
+    text-align: left;
+    color: white;
+}
+div.TerminalText {
+    background-color: black;
+    font-size: 16px;
+    font-weight: 200;
+    color: white;
+}
+div.XYZDisplay {
+    border-left: 2px solid gray;
+    border-right: 2px solid gray;
+    border-top: 2px solid gray;
+    padding-left: 20px;
+    background-color: black;
+    height: 150px;
+    width: 910px;
+}
+div.XYZOutput {
+    background-color: black;
+    font-size: 16px;
+    font-weight: 200;
+    height: 140px;
+    color: white;
+    width: 910px;
+}
+div.Cords {
+    float:left;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    padding-left: 20px;
+    background-color: black;
+    width: 145px;
+    height: 140px;
+}
+div.CordsBackGround {
+    background: black;
+    padding-left: 15px;
+    align-items: center;
+    height: 100px;
+    font-size: 120px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.1);
+}
+div.EndstopContainer {
+    float:left;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    padding-left: 5px;
+    background-color: black;
+    width: 80px;
+    height: 140px;
+}
+div.EndstopBackground {
+    height: 100px;
+    width: 70px;
+    background: black;
+    padding-top: 20px;
+    padding-left: 5px;
+    align-items: center;
+    font-size: 80px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.2);
+}
+div.EndStopOverlay {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 26px;
+    font-weight: bold;
+    color: yellow;
+}
+div.MainFixed {
+    position: fixed;
+}
+div.Container {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    padding: 5px;
+    background-color: gray;
+    height: 180px;
+    width: 924px;
+}
+div.HideContainer {
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    width: 924px;
+}
+div.HideContainer:hover {
+    border: 1px solid yellow;
+}
+div.HideContainer:active {
+    border: 1px solid green;
+}
+div.ConfigContainer {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    padding: 5px;
+    background-color: gray;
+    width: 924px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+div.ConfigContainer div.ConfigExampleLinksWrapper {
+    display: flex;
+    width: 100%;
+}
+div.ConfigContainer div.ConfigExampleLinksWrapper a{
+    width: 100%;
+    font-size: 12px;
+}
+div.ConfigContainer a {
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: lightgray;
+}
+div.ConfigContainer a:hover {
+  background-color: lightseagreen;
+}
+div.ContainerControls {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    background-color: gray;
+    height: 300px;
+    width: 924px;
+}
+div.ContainerBottom {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+    background-color: gray;
+    height: 300px;
+    width: 924px;
+}
+div.Controlbox{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 2px;
+    float: left; 
+    height: 290px;
+    width: 480px;
+}
+div.ControlboxTop{
+    margin: auto;
+    width: 370px;
+}
+div.ControlboxBot{
+    margin: auto;
+    width: 370px;
+    height: 145px;
+}
+div.ControlSlideContainer{
+    margin: auto;
+    width: 370px;
+}
+div.MoveSliderContainer{
+    float: left;
+    height: 270px;
+    width: 30px;
+}
+div.ControlMoveSpeed{
+    margin-left: 15px;
+    height: 10px;
+    width: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+div.ControlMoveSpeedSlider{
+    margin: 15px;
+    height: 200px;
+    width: 14px;
+}
+div.ControlMoveSpeedSlider input[type=range][orient=vertical]
+{
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 12px;
+    height: 175px;
+    padding: 0 5px;
+}
+div.ControlMoveAmountButtons{
+    margin: auto;
+    width: 95%;
+}
+input.ControlButtonAmount{
+    border: 2px solid red;
+    padding: 4px 4px;
+    background-color: black;
+    color: white;
+    height: 35px;
+}
+input.ControlButtonAmount.active{
+    background-color: blue;
+    color: white;
+}
+input.ControlButtonAmount:hover{
+    background-color: blue;
+    color: white;
+}
+input.ControlButtonAmount:active{
+    background-color: yellow;
+    color: white;
+}
+button.ControlButtonAmount{
+  border: 2px solid red;
+  padding: 4px 4px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+}
+button.ControlButtonAmount.active{
+  background-color: blue;
+  color: white;
+}
+button.ControlButtonAmount:hover{
+  background-color: blue;
+  color: white;
+}
+button.ControlButtonAmount:active{
+  background-color: yellow;
+  color: white;
+}
+button.ControlEUp, button.ControlEDown{
+    border: 2px solid red;
+    padding: 4px 4px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+}
+button.ControlEUp.active, button.ControlEDown.active{
+    background-color: blue;
+    color: white;
+}
+button.ControlEUp:hover, button.ControlEDown:hover {
+    background-color: green;
+    color: white;
+}
+button.ControlEUp:active, button.ControlEDown:active {
+    background-color: lightgoldenrodyellow;
+    color: white;
+}
+div.ControlUp{
+    float: left;
+    color: lightgoldenrodyellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-left: 2px solid rgba(255, 0, 0, 0.5);
+    border-right: 2px solid rgba(255, 0, 0, 0.5);
+    border-top: 2px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    margin: auto;
+    width: 119px;
+    height: 120px;
+    background-color: black;
+}
+div.ControlZUp, div.ControlZDown{
+    float: left;
+    color: lightgoldenrodyellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+    border-radius: 60px;
+    border-left: 2px solid rgba(255, 0, 0, 0.5);
+    border-right: 2px solid rgba(255, 0, 0, 0.5);
+    border-top: 2px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    margin: auto;
+    width: 119px;
+    height: 120px;
+    background-color: black;
+}
+div.ControlLeft{
+    color: lightgoldenrodyellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-left: 2px solid rgba(255, 0, 0, 0.5);
+    border-right: 2px solid rgba(255, 0, 0, 0.5);
+    border-top: 2px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    float: left;
+    width: 119px;
+    height: 120px;
+    background-color: black;
+}
+div.ControlDown{
+    color: lightgoldenrodyellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+    border-left: 2px solid rgba(255, 0, 0, 0.5);
+    border-right: 2px solid rgba(255, 0, 0, 0.5);
+    border-top: 2px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    float: left;
+    width: 119px;
+    height: 120px;
+    background-color: black;
+}
+div.ControlRight{
+    color: lightgoldenrodyellow;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 120px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-left: 2px solid rgba(255, 0, 0, 0.5);
+    border-right: 2px solid rgba(255, 0, 0, 0.5);
+    border-top: 2px solid rgba(255, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(255, 0, 0, 0.5);
+    float: left;
+    width: 119px;
+    height: 120px;
+    background-color: black;
+}
+div.ControlZUp:hover, div.ControlZDown:hover, div.ControlUp:hover, div.ControlLeft:hover, div.ControlDown:hover, div.ControlRight:hover{
+    background-color: green;
+}
+
+div.ControlZUp:active, div.ControlZDown:active, div.ControlUp:active, div.ControlLeft:active, div.ControlDown:active, div.ControlRight:active{
+    background-color: lightgoldenrodyellow;
+}
+
+div.ControlMovementContainer{
+    float: left;
+    border-radius: 10px;
+    background-color: tan;
+    height: 290px;
+    width: 400px;
+}
+svg.ControlMovementOverlay{
+    position: absolute;
+    height: 270px;
+    width: 400px;
+}
+div.ControlZoomSvg{
+    opacity: 0.3;
+    float:right;
+    padding-right: 10px;
+    padding-top: 215px;
+    position: relative;
+}
+div.ControlZoomSvg:hover {
+    opacity: 1;
+}
+div.ControlZoomSvg button {
+  border: 2px solid red;
+  padding: 6px 6px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
+div.ControlZoomSvg button:hover {
+    background-color: blue;
+    color: white;
+}
+div.ControlZoomSvg button:active {
+  background-color: yellow;
+  color: white;
+}
+div.ControlOffsetSvg{
+    opacity: 0.3;
+    float:right;
+    padding-right: 280px;
+    padding-top: 215px;
+    position: relative;
+}
+div.ControlOffsetSvg:hover {
+    opacity: 1;
+}
+div.ControlOffsetSvg button {
+  border: 2px solid red;
+  padding: 6px 6px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
+div.ControlOffsetSvg button:hover {
+    background-color: blue;
+    color: white;
+}
+div.ControlOffsetSvg button:active {
+  background-color: yellow;
+  color: white;
+}
+div.ContainerHeading {
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: -1px 1px 1px black;
+    color: yellow;
+    text-align: center;
+    float:left;
+    height: 180px;
+    width: 160px;
+}
+div.ContainerBoxNoClick {
+    border-radius: 10px;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    font-size: 120px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.2);
+}
+div.ContainerBox {
+    border-radius: 10px;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    font-size: 120px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.2);
+}
+div.ContainerBox:hover {
+    background-color: green;
+}
+div.ContainerBox:active {
+    background-color: lightgreen;
+}
+div.ContainerBoxHoming {
+    border-radius: 10px;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    font-size: 120px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.2);
+}
+div.ContainerBoxHoming:hover {
+    background-color: red;
+}
+div.ContainerBoxHoming:active {
+    background-color: lightgreen;
+}
+div.ContainerBoxCenter {
+    vertical-align: middle;
+    line-height: 30px;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    font-size: 120px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.2);
+}
+div.ContainerBoxOverlayTop {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: yellow;
+}
+div.ContainerBoxOverlayBot {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 200px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: blue;
+}
+div.ContainerBoxOverlay {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 230px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    color: lightgoldenrodyellow;
+}
+div.ContainerBoxOverlaySmallTop {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: yellow;
+}
+div.ContainerBoxOverlaySmallMid {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 105px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: lightgreen;
+}
+div.ContainerBoxOverlaySmallBot {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 160px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+}
+div.OffsetMeshContainer {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    padding: 5px;
+    background-color: gray;
+    height: 180px;
+    width: 924px;
+}
+div.OffsetMeshContainerHeading {
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: yellow;
+    text-align: center;
+    float:left;
+    height: 180px;
+    width: 160px;
+}
+div.OffsetMeshContainerBox {
+    border-radius: 10px;
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+    background-color: black;
+    width: 150px;
+    height: 150px;
+    font-size: 120px;
+    font-weight: 200;
+    color: rgba(255, 255, 255,0.2);
+}
+div.OffsetMeshContainerBoxOverlay {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 150px; 
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    color: yellow;
+}
+div.OffsetMeshContainerBoxOverlayMultiLine {
+    padding-top: 20px;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    font-size: 25px;
+    font-weight: bold;
+    color: yellow;
+}
+div.OffsetMeshContainerForm {
+    border-left: 1px solid rgba(0, 0, 0,0.2);
+    border-right: 1px solid rgba(0, 0, 0,0.2);
+    border-top: 1px solid rgba(0, 0, 0,0.2);
+    border-bottom: 1px solid rgba(0, 0, 0,0.2);
+    padding: 5px;
+    background-color: gray;
+    width: 924px;
+    font-size: 20px;
+    font-weight: bold; 
+}
+div.OffsetMeshContainerForm h3 {
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    border: 4px solid lightgreen;
+    background-color: #4CAF50;
+    padding: 5px;
+    margin: 10px;
+}
+div.OffsetMeshContainerForm input[type=radio],input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+div.CCommand {
+    margin: 15px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    border: 1px solid black;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #4CAF50;
+    width: 160px;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);    
+}
+div.CCommand:hover {
+    background-color: darkred;
+}
+div.CCommand:active {
+    background-color: green;
+}
+div.ControlWidgetSpeed{
+    margin: 5px;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid yellow;
+    border-radius: 10px;
+    text-align: center;
+}
+div.ControlWidgetSpeed input[type=number], input[type=text]{
+    font-size: 16px;
+    width: 60px;
+}
+div.ControlWidgetSpeed button{
+    margin: 15px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    border: 1px solid blue;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #4CAF50;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);
+}
+div.ControlWidgetSpeed button:hover {
+    background-color: darkred;
+}
+div.ControlWidgetSpeed button:active {
+    background-color: green;
+}
+div.ControlWidget{
+    margin: 5px;
+    display: flex;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid yellow;
+    border-radius: 10px;
+    text-align: center;
+}
+div.ControlWidget input[type=number], input[type=text]{
+    font-size: 16px;
+    width: 60px;
+}
+div.ControlWidget button{
+    margin: 5px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    border: 1px solid blue;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #4CAF50;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);
+}
+div.ControlWidget button:hover {
+    background-color: darkred;
+}
+div.ControlWidget button:active {
+    background-color: green;
+}
+div.CommandContainer{
+    display: flex;
+}
+div.StateCommandContainer{
+    display: flex;
+}
+div.StateCommand {
+    margin: 15px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    border: 1px solid yellow;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #4CAF50;
+    width: 130px;
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4); 
+    box-shadow: 5px 5px 5px -1px rgba(0,0,0,0.4);    
+}
+div.StateCommand:hover {
+    background-color: darkred;
+}
+div.StateCommand:active {
+    background-color: green;
+}
+div.CFGSelect {
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+div.CFGSelect select, input[type=text] {
+    text-align: left;
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+div.CFGSelect textarea {
+    font-size: 12px;
+    width: 100%;
+    height: 800px;
+    text-align: left;
+    font-weight: bold;
+}
