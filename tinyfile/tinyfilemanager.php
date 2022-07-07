@@ -1803,7 +1803,7 @@ if (isset($_GET['view'])) {
                         <?php
                     }
                     echo FM_PATH;
-                    if ($is_text) {
+                    if (file_exists(fm_enc(fm_convert_win($file_path)))) {
                         ?>
                         <b><a href="?p=<?php echo urlencode(trim(FM_PATH)) ?>&amp;edit=<?php echo urlencode($file) ?>" class="edit-file"><i class="fa fa-pencil-square"></i> <?php echo lng('Edit') ?>
                             </a></b> &nbsp;
