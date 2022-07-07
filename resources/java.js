@@ -119,57 +119,53 @@ function get_robot_help(){
 					var SvgZoomValue = 100;
 					var SvgOffsetValue = 0;
 					
-					function GetKRoBoTJson(){
-						 $.ajax({
-								url:'http://' + ServerIP + '/KRoBoT/KRoBoT.php?GetKRoBoTs=1', 
-								success:function(GetKRoBoTjson){
-									//console.log(GetKRoBoTjson);                    
-									var getKRoBoTjsonarray = jQuery.parseJSON(GetKRoBoTjson);
-									$.each( getKRoBoTjsonarray['DATA'], function( KRoBoT, KRoBoTData ) {                      
-									if(KRoBoTData['ROBOT']['Active']==true)
-									{
-									  KRoBoTName = KRoBoT;
-									  var KRoBoTUrl = KRoBoTData['ROBOT']['RUrl'];
-									  
-									  if(KRoBoTData['ROBOT']['Status']=="Ready")
-									  {
-										  KRoBoTState = KRoBoTData['ROBOT']['Status'];
-										  document.title = 'KRoBoT';
-										  $('#KRoBoTHome').attr('title', 'HOME');
-										  $('a').css({color: 'black','text-shadow':'0px 0px black','font-size':'20px','font-weight':'bold'});
-										  $('.BusyBox').hide(); 
-									  }
-									  else
-									  {
-										  if(KRoBoTData['ROBOT']['Status']=="Busy")
-										  {
-											  $('.BusyBox').show();                             
-										  }
-										  KRoBoTState = KRoBoTData['ROBOT']['Status'];
-										  //var GetTempDataUrl = KRoBoTUrl + "?KRoBoT=" + KRoBoT + "&GetTempData=1";
-										  //$.getJSON(GetTempDataUrl, function(GetTempData){
-											  // var LoadingProgress = GetTempData['DATA']['Return']['LoadingProgress'];
-											  // if(GetTempData['DATA']['Return']['LoadingProgress']!="")
-											  // {
-											  //     var ProgressDataArray = LoadingProgress.split('/');
-											  //     var ProgressPercentage = 100 / ProgressDataArray[1] * ProgressDataArray[0];
-											  //     document.title = 'KRoBoT ' + Math.round(ProgressPercentage) + '%';
-											  //     $('#KRoBoTHome').attr('title', KRoBoT + " " + Math.round(ProgressPercentage) + '%');
-											  // }
-										  //});
-										  
-										  $('a').css({color: 'red','text-shadow':'1px 1px yellow','font-size':'20px'});
-									  }
-									}
-								});
-							 },
-							 complete:function(){
-								 setTimeout(function(){GetKRoBoTJson();}, 1000);
-							 }
+					function GetKRoBoTStatus(){
+						var get_robot_status = {"id": "123", "method": "get_robot_status", "api_key": api_key, "robot": robot_name}
+						$.ajax({							
+							type: "POST",
+							url:robot_api_url,
+							data: JSON.stringify(get_robot_status),
+							success:function(GetKRoBoTStatus){
+								//console.log(GetKRoBoTjson);              
+								
+								if(GetKRoBoTStatus['status']=="ready")
+								{
+									KRoBoTState = GetKRoBoTStatus['status'];
+									document.title = 'KRoBoT';
+									$('#KRoBoTHome').attr('title', 'HOME');
+									$('a').css({color: 'black','text-shadow':'0px 0px black','font-size':'20px','font-weight':'bold'});
+									$('.BusyBox').hide(); 
+								}
+								else
+								{
+									KRoBoTState = GetKRoBoTStatus['status']
+								}
+								if(GetKRoBoTStatus['status']=="busy")
+								{
+									$('.BusyBox').show();                             
+								}
+								;
+								//var GetTempDataUrl = KRoBoTUrl + "?KRoBoT=" + KRoBoT + "&GetTempData=1";
+								//$.getJSON(GetTempDataUrl, function(GetTempData){
+									// var LoadingProgress = GetTempData['DATA']['Return']['LoadingProgress'];
+									// if(GetTempData['DATA']['Return']['LoadingProgress']!="")
+									// {
+									//     var ProgressDataArray = LoadingProgress.split('/');
+									//     var ProgressPercentage = 100 / ProgressDataArray[1] * ProgressDataArray[0];
+									//     document.title = 'KRoBoT ' + Math.round(ProgressPercentage) + '%';
+									//     $('#KRoBoTHome').attr('title', KRoBoT + " " + Math.round(ProgressPercentage) + '%');
+									// }
+								//});
+								
+								$('a').css({color: 'red','text-shadow':'1px 1px yellow','font-size':'20px'});
+							},
+							complete:function(){
+								setTimeout(function(){GetKRoBoTStatus();}, 1000);
+							}
 						 });
 						 
 					 }
-					GetKRoBoTJson();     
+					 GetKRoBoTStatus();     
 				   
 					$('.SvgZoomValue').html(SvgZoomValue + " %");
 					$('.ContolZoomInSvg').click(function(){
