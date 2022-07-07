@@ -139,25 +139,13 @@ function get_robot_help(){
 								else
 								{
 									KRoBoTState = GetKRoBoTStatus['status']
+									$('a').css({color: 'red','text-shadow':'1px 1px yellow','font-size':'20px'});
 								}
 								if(GetKRoBoTStatus['status']=="busy")
 								{
-									$('.BusyBox').show();                             
+									$('.BusyBox').show();                           
 								}
 								;
-								//var GetTempDataUrl = KRoBoTUrl + "?KRoBoT=" + KRoBoT + "&GetTempData=1";
-								//$.getJSON(GetTempDataUrl, function(GetTempData){
-									// var LoadingProgress = GetTempData['DATA']['Return']['LoadingProgress'];
-									// if(GetTempData['DATA']['Return']['LoadingProgress']!="")
-									// {
-									//     var ProgressDataArray = LoadingProgress.split('/');
-									//     var ProgressPercentage = 100 / ProgressDataArray[1] * ProgressDataArray[0];
-									//     document.title = 'KRoBoT ' + Math.round(ProgressPercentage) + '%';
-									//     $('#KRoBoTHome').attr('title', KRoBoT + " " + Math.round(ProgressPercentage) + '%');
-									// }
-								//});
-								
-								$('a').css({color: 'red','text-shadow':'1px 1px yellow','font-size':'20px'});
 							},
 							complete:function(){
 								setTimeout(function(){GetKRoBoTStatus();}, 1000);
