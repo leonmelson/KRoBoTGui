@@ -1802,6 +1802,7 @@ if (isset($_GET['view'])) {
                                 <?php echo lng('UnZipToFolder') ?></a></b> &nbsp;
                         <?php
                     }
+                    echo FM_PATH;
                     if ($is_text) {
                         ?>
                         <b><a href="?p=<?php echo urlencode(trim(FM_PATH)) ?>&amp;edit=<?php echo urlencode($file) ?>" class="edit-file"><i class="fa fa-pencil-square"></i> <?php echo lng('Edit') ?>
