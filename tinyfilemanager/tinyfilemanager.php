@@ -1918,11 +1918,10 @@ if (isset($_GET['edit'])) {
     $filesize = filesize($file_path);
     $is_text = false;
     $content = ''; // for text
-    echo $ext;
-    
+    if (in_array($ext, fm_get_text_exts()) || substr($mime_type, 0, 4) == 'text' || in_array($mime_type, fm_get_text_mimes())) {
         $is_text = true;
         $content = file_get_contents($file_path);
-    
+    }
 
     ?>
     <div class="path">
@@ -3043,6 +3042,7 @@ function fm_get_text_mimes()
         'application/x-javascript',
         'image/svg+xml',
         'message/rfc822',
+        'inode/x-empty',
     );
 }
 

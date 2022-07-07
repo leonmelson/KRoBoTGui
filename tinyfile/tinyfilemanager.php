@@ -3043,6 +3043,7 @@ function fm_get_text_mimes()
         'application/x-javascript',
         'image/svg+xml',
         'message/rfc822',
+        'inode/x-empty',
     );
 }
 
