@@ -803,7 +803,7 @@ function get_robot_help(){
 
 							var TerminalDataShow = '';
 							$.each( TerminalDataLast, function( TerminalDataKey, TerminalDataValue ) {
-								 TerminalDataShow = TerminalDataShow + TerminalDataValue['command'] + "<br>";
+								 TerminalDataShow = TerminalDataShow + TerminalDataValue['command'] + "<br>" + TerminalDataValue['recv'];
 								});
 							$('#terminalData').html(TerminalDataShow);
 							$('#terminalData').scrollTop($('#terminalData')[0].scrollHeight);
