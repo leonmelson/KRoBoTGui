@@ -813,7 +813,7 @@ function get_robot_help(){
 
 							var TerminalDataShow = '';							
 							$.each( TerminalDataLast, function( TerminalDataKey, TerminalDataValue ) {
-									if (TerminalDataValue['command'] != undefined)
+									if (TerminalDataValue['command'] == undefined)
 									{
 										TerminalDataShow = TerminalDataShow + TerminalDataValue['recv'] + "<br>";
 									}
