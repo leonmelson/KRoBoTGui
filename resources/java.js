@@ -811,9 +811,16 @@ function get_robot_help(){
 						success:function(Terminaldata){
 							var TerminalDataLast = Terminaldata;
 
-							var TerminalDataShow = '';
+							var TerminalDataShow = '';							
 							$.each( TerminalDataLast, function( TerminalDataKey, TerminalDataValue ) {
-								 TerminalDataShow = TerminalDataShow + TerminalDataValue['command'] + "<br>" + TerminalDataValue['recv'] + "<br>";
+									if (TerminalDataValue['command'] != null)
+									{
+										TerminalDataShow = TerminalDataShow + TerminalDataValue['recv'] + "<br>";
+									}
+									else
+									{
+										TerminalDataShow = TerminalDataShow + TerminalDataValue['command'] + "<br>" + TerminalDataValue['recv'] + "<br>";
+									}
 								});
 							$('#terminalData').html(TerminalDataShow);
 							$('#terminalData').scrollTop($('#terminalData')[0].scrollHeight);
