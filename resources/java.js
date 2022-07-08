@@ -534,11 +534,32 @@ function get_robot_help(){
 				  });
 				$('.CCommand').click(function(){
 					if (isDoubleClicked($(this))) return;
-					var CCommand = $(this).attr('data-ccommand');
+					var commands = $(this).attr('data-commands'); // Commands can be split in /
+					var command_array = commands.split('/');
+					var commands_type = $(this).attr('data-commands-type');
+					var send_commands = "";
+					if ($.isArray(command_array))
+					{
+						send_commands = command_array;
+					}
+					else
+					{
+						send_commands = [commands];
+					}
+					if (commands_type == null)
+					{
+						commands_type = "normal";
+					}
+					var send_commands_api_list = {"commands_type": commands_type, "commands": send_commands};
+					var send_commands_to_api = {"id": "2000001", "method": "send_gcode_commands", "api_key": api_key, "robot": robot_name, "params": send_commands_api_list};
+					console.log(send_commands_to_api);
+
 					$.ajax({
-					  url: 'TerminalSubmit.php?terminaltext='+CCommand,
-					  success:function(){
-					  }
+						type: "POST",
+					  	url: robot_api_url,
+						data: JSON.stringify(send_commands_to_api),
+					  	success:function(){
+					  	}
 					});
 				  });    
 				  

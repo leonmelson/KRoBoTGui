@@ -1087,19 +1087,19 @@ if(empty($PageState))
     </div>
     <div class="BOTTOMCommands">
         <div class="CommandContainer">
-            <div class="CCommand" data-ccommand="ACCEPT">
+            <div class="CCommand" data-commands="ACCEPT" data-command-type="normal">
                 ACCEPT
             </div>
-            <div class="CCommand" data-ccommand="M18">
+            <div class="CCommand" data-commands="M18" data-command-type="normal">
                 MOTOR OFF
             </div>
-            <div class="CCommand" data-ccommand="G1X0Y0F1000">
+            <div class="CCommand" data-commands="G1X0Y0F1000" data-command-type="normal">
                 G1X0Y0
             </div>
-            <div class="CCommand" data-ccommand="RESTART">
+            <div class="CCommand" data-commands="RESTART" data-command-type="normal">
                 RESTART
             </div>
-            <div class="CCommand" data-ccommand="FIRMWARE_RESTART">
+            <div class="CCommand" data-commands="FIRMWARE_RESTART" data-command-type="normal">
                 RESTART FIRM
             </div>
         </div>
