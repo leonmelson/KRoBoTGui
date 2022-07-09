@@ -236,7 +236,7 @@ if(empty($PageState))
         }
         ?>
         <div class="BusyBox">
-            <div class="ESTOP">
+            <div class="CCommand" data-commands="M112" data-command-type="emergency" data-coms-type="uds">
                 ESTOP
             </div>
             <div class="BusyBoxControlBox">
@@ -1090,7 +1090,7 @@ if(empty($PageState))
             <div class="CCommand" data-commands="ACCEPT" data-command-type="normal" data-coms-type="serial">
                 ACCEPT
             </div>
-            <div class="CCommand" data-commands="M18" data-command-type="normal" data-coms-type="serial">
+            <div class="CCommand" data-commands="M18" data-command-type="normal" data-coms-type="uds">
                 MOTOR OFF
             </div>
             <div class="CCommand" data-commands="G1X0Y0F1000" data-command-type="normal" data-coms-type="serial">
