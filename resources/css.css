@@ -105,7 +105,7 @@ div.BusyBox {
     margin: -200px 0 0 -195px;
 
 }
-div.ESTOP {
+#ESTOP {
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -123,11 +123,11 @@ div.ESTOP {
     color: white;
     background: red;
 }
-div.ESTOP:hover{
+#ESTOP:hover{
     font-size: 50px;
     text-shadow: -3px 2px yellow;
 }
-div.ESTOP:active{
+#ESTOP:active{
     font-size: 30px;
     text-shadow: -3px 2px green;
     background: darkred;
