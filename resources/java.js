@@ -532,7 +532,7 @@ function get_robot_help(){
 						  }
 						});
 				  });
-				$('.CCommand').click(function(){
+				$('.CCommand', '.ESTOP').click(function(){
 					if (isDoubleClicked($(this))) return;
 					var commands = $(this).attr('data-commands'); // Commands can be split in /
 					var command_array = commands.split('/');
@@ -686,15 +686,15 @@ function get_robot_help(){
 					  }
 					});
 				  });
-				  $('.ESTOP').click(function(){
-					if (isDoubleClicked($(this))) return;           
-					SCommand = "M112";
-					$.ajax({
-					  url: 'TerminalSubmit.php?PrinterState='+SCommand,
-					  success:function(){
-					  }
-					});
-				  });
+				//   $('.ESTOP').click(function(){
+				// 	if (isDoubleClicked($(this))) return;           
+				// 	SCommand = "M112";
+				// 	$.ajax({
+				// 	  url: 'TerminalSubmit.php?PrinterState='+SCommand,
+				// 	  success:function(){
+				// 	  }
+				// 	});
+				//   });
 				  $('.busypsfplus').click(function(){
 					if (isDoubleClicked($(this))) return;           
 					SCommand = "M220 S" + (PSFVALUE+1);
