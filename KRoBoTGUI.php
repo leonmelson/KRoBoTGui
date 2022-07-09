@@ -1096,10 +1096,10 @@ if(empty($PageState))
             <div class="CCommand" data-commands="G1X0Y0F1000" data-command-type="normal" data-coms-type="serial">
                 G1X0Y0
             </div>
-            <div class="CCommand" data-commands="RESTART" data-command-type="normal" data-coms-type="serial">
+            <div class="CCommand" data-commands="RESTART" data-command-type="restart" data-coms-type="serial">
                 RESTART
             </div>
-            <div class="CCommand" data-commands="FIRMWARE_RESTART" data-command-type="normal" data-coms-type="serial">
+            <div class="CCommand" data-commands="FIRMWARE_RESTART" data-command-type="restart" data-coms-type="serial">
                 RESTART FIRM
             </div>
         </div>
