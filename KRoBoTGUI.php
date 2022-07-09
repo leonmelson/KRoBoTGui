@@ -1099,7 +1099,7 @@ if(empty($PageState))
             <div class="CCommand" data-commands="RESTART" data-command-type="normal" data-coms-type="serial">
                 RESTART
             </div>
-            <div class="CCommand" data-commands="FIRMWARE_RESTART" data-command-type="emergency" data-coms-type="uds">
+            <div class="CCommand" data-commands="FIRMWARE_RESTART" data-command-type="normal" data-coms-type="serial">
                 RESTART FIRM
             </div>
         </div>
