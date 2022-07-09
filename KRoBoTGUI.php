@@ -236,7 +236,7 @@ if(empty($PageState))
         }
         ?>
         <div class="BusyBox">
-            <div id="ESTOP" data-commands="M112" data-command-type="emergency" data-coms-type="uds">
+            <div id="ESTOP" data-commands="M112" data-commands-type="emergency" data-coms-type="uds">
                 ESTOP
             </div>
             <div class="BusyBoxControlBox">
