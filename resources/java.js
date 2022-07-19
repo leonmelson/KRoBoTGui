@@ -532,7 +532,7 @@ function get_robot_help(){
 						  }
 						});
 				  });
-				$('.CCommand, #ESTOP').click(function(){
+				$('.CCommand, #ESTOP, .StateCommand').click(function(){
 					if (isDoubleClicked($(this))) return;
 					var commands = $(this).attr('data-commands'); // Commands can be split in /
 					var command_array = commands.split('/');

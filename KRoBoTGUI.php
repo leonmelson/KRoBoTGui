@@ -1104,16 +1104,16 @@ if(empty($PageState))
             </div>
         </div>
         <div class="CommandContainer">
-            <div class="CCommand" data-ccommand="DELTA_CALIBRATE METHOD=manual">
+            <div class="CCommand" data-ccommand="DELTA_CALIBRATE METHOD=manual" data-commands-type="normal" data-coms-type="serial">
                 DELTA_CALI
             </div>
-            <div class="CCommand" data-ccommand="BED_MESH_CALIBRATE">
+            <div class="CCommand" data-ccommand="BED_MESH_CALIBRATE" data-commands-type="normal" data-coms-type="serial">
                 BED MESH CAL
             </div>
-            <div class="CCommand" data-ccommand="BED_MESH_CLEAR">
+            <div class="CCommand" data-ccommand="BED_MESH_CLEAR" data-commands-type="normal" data-coms-type="serial">
                 MESH CLEAR
             </div>
-            <div class="CCommand" data-ccommand="BED_MESH_MAP">
+            <div class="CCommand" data-ccommand="BED_MESH_MAP" data-commands-type="normal" data-coms-type="serial">
                 MESH MAP
             </div>
         </div>
@@ -1171,7 +1171,7 @@ if(empty($PageState))
                     </button>
                 </div>
             </div>
-            <div class="CCommand" data-ccommand="BED_MESH_CALIBRATE  METHOD=manual">
+            <div class="CCommand" data-ccommand="BED_MESH_CALIBRATE  METHOD=manual" data-commands-type="normal" data-coms-type="serial">
                 BED MESH MANUAL
             </div>
         </div>
@@ -1185,7 +1185,7 @@ if(empty($PageState))
             <div class="StateCommand" data-ccommand="RESUME">
                 RESUME
             </div>-->
-            <div class="StateCommand" data-ccommand="CANCEL">
+            <div class="StateCommand" data-ccommand="CANCEL" data-commands-type="normal" data-coms-type="serial">
                 CANCEL
             </div>
         </div>
