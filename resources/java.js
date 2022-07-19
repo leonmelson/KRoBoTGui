@@ -521,17 +521,6 @@ function get_robot_help(){
 					  }
 					});
 				  });
-				// $('.ContainerBoxHoming').click(function(){
-					// if (isDoubleClicked($(this))) return;
-					// var SendCommand = $(this).attr('data-sendcommand');
-					// var Notify = confirm ("IS "+SendCommand.toUpperCase()+" ENDSTOP READY");
-					// if (Notify)
-						// $.ajax({
-						  // url: 'TerminalSubmit.php?command='+SendCommand,
-						  // success:function(){
-						  // }
-						// });
-				  // });
 				$('.CCommand, #ESTOP, .StateCommand, .ContainerBoxHoming').click(function(){
 					if (isDoubleClicked($(this))) return;
 					var commands = $(this).attr('data-commands'); // Commands can be split in /
