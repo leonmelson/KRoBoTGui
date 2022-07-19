@@ -453,11 +453,11 @@ if(empty($PageState))
                             }
                             if(empty($HomingOverrideData['gcode']) AND empty($HomingOverrideData['axes']))
                             {
-                                echo "data-sendcommand='homeall'";
+                                echo "data-commands='G28X0' data-commands-type='normal' data-coms-type='serial'";
                             } 
                             else
                             {
-                                echo "data-sendcommand='homex'";
+                                echo "data-commands='G28X0' data-commands-type='normal' data-coms-type='serial'";
                             } 
                             ?>>
                             <div class="ContainerBoxOverlayTop" id="rx">
@@ -492,11 +492,11 @@ if(empty($PageState))
                             }
                             if(empty($HomingOverrideData['gcode']) AND empty($HomingOverrideData['axes']))
                             {
-                                echo "data-sendcommand='homeall'";
+                                echo "data-commands='G28Y0' data-commands-type='normal' data-coms-type='serial'";
                             } 
                             else
                             {
-                                echo "data-sendcommand='homey'";
+                                echo "data-commands='G28Y0' data-commands-type='normal' data-coms-type='serial'";
                             } 
                             ?>>
                              <div class="ContainerBoxOverlayTop" id="ry">
@@ -527,11 +527,11 @@ if(empty($PageState))
                             }
                             if(empty($HomingOverrideData['gcode']) AND empty($HomingOverrideData['axes']))
                             {
-                                echo "data-sendcommand='homeall'";
+                                echo "data-commands='G28X0' data-commands-type='normal' data-coms-type='serial'";
                             } 
                             else
                             {
-                                echo "data-sendcommand='homez'";
+                                echo "data-commands='G28X0' data-commands-type='normal' data-coms-type='serial'";
                             } 
                             ?>>
                              <div class="ContainerBoxOverlayTop" id="rz">
