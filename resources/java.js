@@ -501,13 +501,30 @@ function get_robot_help(){
 				if(document.getElementById("terminaltextform") !== null)
 				{
 					$('#terminaltext').focus();
+
 					$('#terminaltextform').on('submit', function (e) {
 						e.preventDefault();
-						$.ajax({
-							type: 'post',
-							url: 'TerminalSubmit.php',
-							data: $('#terminaltextform').serialize()
-						});
+				        var t_commands = $('#terminaltextform').serialize()
+				        var t_command_array = commands.split('/');
+
+                        if ($.isArray(t_command_array))
+                        {
+                            t_send_commands = t_command_array;
+                        }
+                        else
+                        {
+                            t_send_commands = [t_commands];
+                        }
+                        var t_send_commands_api_list = {"commands_type": "normal", "commands": t_send_commands, "coms_type": "serial"};
+                        var t_send_commands_to_api = {"id": "3000001", "method": "send_gcode_commands", "api_key": api_key, "robot": robot_name, "params": t_send_commands_api_list};
+						console.log(t_send_commands_to_api);
+                        $.ajax({
+                            type: "POST",
+                            url: robot_api_url,
+                            data: JSON.stringify(t_send_commands_to_api),
+                            success:function(){
+                            }
+                        });
 						$("#terminaltext").val("");
 					});
 				}
