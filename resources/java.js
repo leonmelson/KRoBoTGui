@@ -87,11 +87,17 @@ function get_robot_help(){
 							var MoveAxis = MoveID.replace(Directionvalue, "");
 							$('#'+MoveID).click(function(){
 								if (isDoubleClicked($(this))) return;
-								$.ajax({
-								  url: 'TerminalSubmit.php?MoveAxis='+MoveAxis.toUpperCase()+'&MoveAmount='+PlusMinus+MoveAmount+'&MoveSpeed='+MoveSpeed,
-								  success:function(){
-								  }
-								});
+								m_commands = ['G1 ' + MoveAxis.toUpperCase() + PlusMinus + MoveAmount + ' F' + MoveSpeed];
+                                var m_send_commands_api_list = {"commands_type": "normal", "commands": m_commands, "coms_type": "serial"};
+                                var m_send_commands_to_api = {"id": "3000001", "method": "send_gcode_commands", "api_key": api_key, "robot": robot_name, "params": m_send_commands_api_list};
+						        console.log(m_send_commands_to_api);
+                                $.ajax({
+                                    type: "POST",
+                                    url: robot_api_url,
+                                    data: JSON.stringify(m_send_commands_to_api),
+                                    success:function(){
+                                    }
+                                });
 							  });
 						});
 					});
