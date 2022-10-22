@@ -8,18 +8,18 @@ function get_robot_help(){
 		url:api_url + '?id=123&method=get_help',
 		success:function(robot_help_data){
 			$.each( robot_help_data["robots"], function( robot_names, robot_data ) {
-				 
+
 				 if(robot_data["active"] && robot_data["primary"]){
 					 console.log(robot_names);
 					 robot_name = robot_names;
 					 robot_api_url = "http://" + robot_data["api_url"];
 				 }
-			});			
+			});
 
 			$('document').ready(function(){
-				
+
 				$('#KRoBoTHome').html(robot_name);
-				
+
 				function isDoubleClicked(element) {
 					//if already clicked return TRUE to indicate this click is not allowed
 					if (element.data("isclicked")) return true;
@@ -35,14 +35,14 @@ function get_robot_help(){
 				}
 				if(document.getElementById("myControlMoveAmount") !== null)
 				{
-					var Direction = ["up", "down"];        
+					var Direction = ["up", "down"];
 					Direction["up"] = ["ControlUp", "ControlZUp", "ControlRight", "ControlEUp"];
 					Direction["down"] = ["ControlZDown", "ControlLeft", "ControlDown", "ControlEDown"];
 					var MoveAmount = '0.01';
 					var MoveSpeed = '500';
 					var MoveSpeedRange = $('#MoveSpeedRange');
 					var myMoveSpeed = $('#myMoveSpeed');
-				
+
 					myMoveSpeed.html(MoveSpeedRange.attr('value'));
 
 					MoveSpeedRange.on('input', function(){
@@ -51,11 +51,11 @@ function get_robot_help(){
 					});
 
 					var MoveAmountDIV = document.getElementById("myControlMoveAmount");
-					var MoveBTNS = MoveAmountDIV.getElementsByClassName("ControlButtonAmount");            
+					var MoveBTNS = MoveAmountDIV.getElementsByClassName("ControlButtonAmount");
 					for (var i = 0; i < MoveBTNS.length; i++) {
 					  if(i < 6)
 					  {
-						MoveBTNS[i].addEventListener("click", function() {            
+						MoveBTNS[i].addEventListener("click", function() {
 							var current = document.getElementsByClassName("active");
 							current[0].className = current[0].className.replace(" active", "");
 							this.className += " active";
@@ -65,18 +65,18 @@ function get_robot_help(){
 					  }
 					  else if(i == 6)
 					  {
-						MoveBTNS[i].addEventListener("change", function() {            
+						MoveBTNS[i].addEventListener("change", function() {
 						  var current = document.getElementsByClassName("active");
 						  current[0].className = current[0].className.replace(" active", "");
 						  this.className += " active";
 						  MoveAmount = this.value;
 						  //alert(i);
-					  });            
+					  });
 					  }
 					}
 					$.each( Direction, function( Directionkey, Directionvalue )
 					{
-						$.each( Direction[Directionvalue], function( DirectionvalueKey, DirectionvalueValue ) 
+						$.each( Direction[Directionvalue], function( DirectionvalueKey, DirectionvalueValue )
 						{
 							var PlusMinus = "";
 							if(Directionvalue == "down")
@@ -124,23 +124,23 @@ function get_robot_help(){
 					//Zoom into XY
 					var SvgZoomValue = 100;
 					var SvgOffsetValue = 0;
-					
+
 					function GetKRoBoTStatus(){
 						var get_robot_status = {"id": "123", "method": "get_robot_status", "api_key": api_key, "robot": robot_name}
-						$.ajax({							
+						$.ajax({
 							type: "POST",
 							url:robot_api_url,
 							data: JSON.stringify(get_robot_status),
 							success:function(GetKRoBoTStatus){
-								//console.log(GetKRoBoTjson);              
-								
+								//console.log(GetKRoBoTjson);
+
 								if(GetKRoBoTStatus['status']=="ready")
 								{
 									KRoBoTState = GetKRoBoTStatus['status'];
 									document.title = 'KRoBoT';
 									$('#KRoBoTHome').attr('title', 'HOME');
 									$('a').css({color: 'black','text-shadow':'0px 0px black','font-size':'20px','font-weight':'bold'});
-									$('.BusyBox').hide(); 
+									$('.BusyBox').hide();
 								}
 								else
 								{
@@ -149,7 +149,7 @@ function get_robot_help(){
 								}
 								if(GetKRoBoTStatus['status']=="busy")
 								{
-									$('.BusyBox').show();                           
+									$('.BusyBox').show();
 								}
 								;
 							},
@@ -157,10 +157,10 @@ function get_robot_help(){
 								setTimeout(function(){GetKRoBoTStatus();}, 1000);
 							}
 						 });
-						 
+
 					 }
-					 GetKRoBoTStatus();     
-				   
+					 GetKRoBoTStatus();
+
 					$('.SvgZoomValue').html(SvgZoomValue + " %");
 					$('.ContolZoomInSvg').click(function(){
 						SvgZoomValue = parseFloat(SvgZoomValue) + parseFloat($(this).val());
@@ -170,9 +170,9 @@ function get_robot_help(){
 						//alert(SvgZoomPercetageValue);
 						//Zoom XY
 						if(SvgZoomValue>0)
-						{            
+						{
 							viewBoxZX = Math.round(270 * SvgZoomPercetageValue);
-							viewBoxZY = Math.round(400 * SvgZoomPercetageValue);                                
+							viewBoxZY = Math.round(400 * SvgZoomPercetageValue);
 						}
 						SendCordSvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
 						ToolDisplaySvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
@@ -185,15 +185,15 @@ function get_robot_help(){
 						//alert(SvgZoomPercetageValue);
 						//Zoom XY
 						if(SvgZoomValue>0)
-						{            
+						{
 							viewBoxZX = Math.round(270 * SvgZoomPercetageValue);
-							viewBoxZY = Math.round(400 * SvgZoomPercetageValue);                                
+							viewBoxZY = Math.round(400 * SvgZoomPercetageValue);
 						}
 						SendCordSvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
 						ToolDisplaySvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
 					});
 
-					
+
 					$('.SvgOffsetValue').html(SvgOffsetValue + " mm");
 					$('.ContolOffsetInSvg').click(function(){
 						SvgOffsetValue = parseFloat(SvgOffsetValue) - parseFloat($(this).val());
@@ -208,25 +208,25 @@ function get_robot_help(){
 
 						SendCordSvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
 						ToolDisplaySvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
-					});        
+					});
 					function TerminalSendCord(){
 						 $.ajax({
 								url:'TerminalSendCord.php?data=sendcord', success:function(Terminalsendcord){
-								//console.log(Terminalsendcord);                    
+								//console.log(Terminalsendcord);
 								var getterminalsendcordarray = jQuery.parseJSON(Terminalsendcord);
-								
+
 								$.each( getterminalsendcordarray, function( TerminalSendCordKey, TerminalSendCordValue ) {
 								  if(parseInt(TerminalPreSendCordKey, 10) < parseInt(TerminalSendCordKey, 10))
-								  {  
+								  {
 									if(TerminalSendCordValue['G1'] != undefined)
 									{
 									  if(TerminalSendCordValue['G1']['Y'] === undefined)
 									  {
-										TerminalSendCordValue['G1']['Y'] = TerminalPreSendCordY; 
+										TerminalSendCordValue['G1']['Y'] = TerminalPreSendCordY;
 									  }
 									  if(TerminalSendCordValue['G1']['X'] === undefined)
 									  {
-										TerminalSendCordValue['G1']['X'] = TerminalPreSendCordX; 
+										TerminalSendCordValue['G1']['X'] = TerminalPreSendCordX;
 									  }
 
 									  const drawCords = document.createElementNS("http://www.w3.org/2000/svg", "line");
@@ -238,15 +238,15 @@ function get_robot_help(){
 									  drawCords.setAttribute("y1", TerminalPreSendCordX);
 									  drawCords.setAttribute("y2", TerminalSendCordValue['G1']['X']);
 									  drawCords.setAttribute("stroke", "#F5DEB3");
-									  
+
 									  SendCordSvg.appendChild(drawCords);
 
-									  TerminalPreSendCordY = TerminalSendCordValue['G1']['Y']; 
-									  TerminalPreSendCordX = TerminalSendCordValue['G1']['X'];                     
+									  TerminalPreSendCordY = TerminalSendCordValue['G1']['Y'];
+									  TerminalPreSendCordX = TerminalSendCordValue['G1']['X'];
 									}
 									else if(TerminalSendCordValue['G2'] != undefined || TerminalSendCordValue['G3'] != undefined )
 									{
-									  //TODO IF the PreX or Y is Equal to the End Arc XY use Circle instead Also 
+									  //TODO IF the PreX or Y is Equal to the End Arc XY use Circle instead Also
 									  var ArcDirection;
 									  var Radius;
 									  var ArcCoords = "M " + TerminalPreSendCordY + " " + TerminalPreSendCordX + " A ";
@@ -264,8 +264,8 @@ function get_robot_help(){
 										drawArc.setAttributeNS(null, 'opacity', 1.0);
 										SendCordSvg.appendChild(drawArc);
 										//alert(ArcCoords);
-										TerminalPreSendCordY = TerminalSendCordValue['G2']['Y']; 
-										TerminalPreSendCordX = TerminalSendCordValue['G2']['X'];  
+										TerminalPreSendCordY = TerminalSendCordValue['G2']['Y'];
+										TerminalPreSendCordX = TerminalSendCordValue['G2']['X'];
 									  }
 									  else if(TerminalSendCordValue['G3'] !== undefined)
 									  {
@@ -281,12 +281,12 @@ function get_robot_help(){
 										drawArc.setAttributeNS(null, 'opacity', 1.0);
 										SendCordSvg.appendChild(drawArc);
 
-										TerminalPreSendCordY = TerminalSendCordValue['G3']['Y']; 
-										TerminalPreSendCordX = TerminalSendCordValue['G3']['X'];  
+										TerminalPreSendCordY = TerminalSendCordValue['G3']['Y'];
+										TerminalPreSendCordX = TerminalSendCordValue['G3']['X'];
 									  }
 									}
 									TerminalPreSendCordKey = TerminalSendCordKey;
-								  }              
+								  }
 								});
 							 },
 							 complete:function(){
@@ -295,7 +295,7 @@ function get_robot_help(){
 							 }
 						 });
 					 }
-					TerminalSendCord();        
+					TerminalSendCord();
 					function XYZData(){
 						 $.ajax({
 							 url:'XYZData.php', success:function(data){
@@ -330,12 +330,12 @@ function get_robot_help(){
 										}
 										else{
 											if(PreValue[key] != value)
-											{                                
+											{
 											  $('#' + Keyvalue).html(Math.round((value*100)) + "%");
-											  $('#busy' + Keyvalue).html(Math.round((value*100)) + "%");                                  
+											  $('#busy' + Keyvalue).html(Math.round((value*100)) + "%");
 											}
-											
-										}  
+
+										}
 									}
 									else{
 										if(value == ""){
@@ -346,17 +346,17 @@ function get_robot_help(){
 											$('#' + Keyvalue).html(value);
 											MoveLocation[Keyvalue] = value;
 
-										}                         
+										}
 									}
 									if(key == 'B'){
 										var BEDTEMP = value.split("/");
 										BEDTOTEMP = BEDTEMP[1];
-										
+
 										if(BEDTOTEMP == ""){
 											$('#busybt').text("0.00");
 										 }
 										 else{
-											 $('#busybt').html(BEDTOTEMP); 
+											 $('#busybt').html(BEDTOTEMP);
 										 }
 									}
 									if(key == 'T'){
@@ -366,7 +366,7 @@ function get_robot_help(){
 											$('#busyet').text("0.00");
 										 }
 										 else{
-											 $('#busyet').html(TOTEMP); 
+											 $('#busyet').html(TOTEMP);
 										 }
 									}
 									if(key == 'GCOZ'){
@@ -374,7 +374,7 @@ function get_robot_help(){
 										  $('#busyzo').text("0.00");
 									   }
 									   else{
-										   $('#busyzo').html(value); 
+										   $('#busyzo').html(value);
 									   }
 									}
 									PreValue[key] = value;
@@ -396,7 +396,7 @@ function get_robot_help(){
 										}
 										if(ProbeArray['Z'] != ""){
 											ProbeHeightArray.push(ProbeArray['Z']);
-										}                          
+										}
 
 										const ProbePoints = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
 										ProbePoints.setAttribute('cx', ProbeArray['X']);
@@ -463,9 +463,9 @@ function get_robot_help(){
 
 									var Endstop = '';
 									$.each( getarray['ENDSTOP'], function( EndstopKey, EndstopValue ) {
-										 Endstop = Endstop + EndstopKey.toUpperCase() + " = " + EndstopValue + "<br>";       
+										 Endstop = Endstop + EndstopKey.toUpperCase() + " = " + EndstopValue + "<br>";
 										});
-									$('#endstops').html(Endstop);                
+									$('#endstops').html(Endstop);
 
 									//Zero Location
 									// create a circle
@@ -492,14 +492,14 @@ function get_robot_help(){
 				});
 				$('#PushCommandTerminal').load('PushCommand.php?page=terminal #PushCommandTerminal', function() {
 				});
-				} 
+				}
 				setInterval(TerminalPush, 500);
 				function TerminalPush() {
 				$('#terminalpushControl').load('terminaltojson.php?page=control #terminalpushControl', function() {
 				});
 				$('#terminalpushTerminal').load('terminaltojson.php?page=terminal #terminalpushTerminal', function() {
 				});
-				}   
+				}
 				$('.HideContainer').click(function(){
 					//var HideContainerID = $(this).attr('data-hideid');
 					$('.BOTTOMCommands').slideToggle(500);
@@ -510,8 +510,10 @@ function get_robot_help(){
 
 					$('#terminaltextform').on('submit', function (e) {
 						e.preventDefault();
-				        var t_commands = $('#terminaltextform').serialize()
-				        var t_command_array = commands.split('/');
+				        let t_commands = $('#terminaltextform').serialize();
+						t_commands = decodeURIComponent(t_commands)
+				        let td_command_array = t_commands.split('=');
+						let t_command_array = td_command_array[1].split('/');
 
                         if ($.isArray(t_command_array))
                         {
@@ -544,18 +546,7 @@ function get_robot_help(){
 					  }
 					});
 				  });
-				$('.ContainerBoxHoming').click(function(){
-					if (isDoubleClicked($(this))) return;
-					var SendCommand = $(this).attr('data-sendcommand');
-					var Notify = confirm ("IS "+SendCommand.toUpperCase()+" ENDSTOP READY");
-					if (Notify)
-						$.ajax({
-						  url: 'TerminalSubmit.php?command='+SendCommand,
-						  success:function(){
-						  }
-						});
-				  });
-				$('.CCommand, #ESTOP').click(function(){
+				$('.CCommand, #ESTOP, .StateCommand, .ContainerBoxHoming').click(function(){
 					if (isDoubleClicked($(this))) return;
 					var commands = $(this).attr('data-commands'); // Commands can be split in /
 					var command_array = commands.split('/');
