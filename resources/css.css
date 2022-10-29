@@ -863,7 +863,7 @@ div.ControlMovementContainer{
 svg.ControlMovementOverlay{
     position: absolute;
     height: 270px;
-    width: 270px;
+    width: 400px;
 }
 div.ControlZoomSvg{
     opacity: 0.3;
