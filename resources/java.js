@@ -86,7 +86,7 @@ function get_robot_help(){
 							var MoveID = $('.'+DirectionvalueValue).attr('id');
 							var MoveAxis = MoveID.replace(Directionvalue, "");
 							$('#'+MoveID).click(function(){
-								if (isDoubleClicked($(this))) return;
+								// if (isDoubleClicked($(this))) return;
 								m_commands = ['JOG ' + MoveAxis.toUpperCase() + '=' + PlusMinus + MoveAmount + ' F=' + MoveSpeed];
                                 var m_send_commands_api_list = {"commands_type": "jog", "commands": m_commands, "coms_type": "serial"};
                                 var m_send_commands_to_api = {"id": "3000001", "method": "send_gcode_commands", "api_key": api_key, "robot": robot_name, "params": m_send_commands_api_list};
