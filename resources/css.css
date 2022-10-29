@@ -858,12 +858,12 @@ div.ControlMovementContainer{
     border-radius: 10px;
     background-color: tan;
     height: 290px;
-    width: 400px;
+    width: 270px;
 }
 svg.ControlMovementOverlay{
     position: absolute;
     height: 270px;
-    width: 400px;
+    width: 270px;
 }
 div.ControlZoomSvg{
     opacity: 0.3;
