@@ -172,7 +172,7 @@ function get_robot_help(){
 						if(SvgZoomValue>0)
 						{
 							viewBoxZX = Math.round(270 * SvgZoomPercetageValue);
-							viewBoxZY = Math.round(400 * SvgZoomPercetageValue);
+							viewBoxZY = Math.round(270 * SvgZoomPercetageValue);
 						}
 						SendCordSvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
 						ToolDisplaySvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
@@ -187,7 +187,7 @@ function get_robot_help(){
 						if(SvgZoomValue>0)
 						{
 							viewBoxZX = Math.round(270 * SvgZoomPercetageValue);
-							viewBoxZY = Math.round(400 * SvgZoomPercetageValue);
+							viewBoxZY = Math.round(270 * SvgZoomPercetageValue);
 						}
 						SendCordSvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);
 						ToolDisplaySvg.setAttribute("viewBox", SvgOffsetValue + " " + SvgOffsetValue +" " + viewBoxZY + " " + viewBoxZX);

@@ -574,7 +574,7 @@ if(empty($PageState))
                 <div class="HideContainer" data-hideid="ContainerControls">
                 </div>
                 <div class="ContainerControls" id="ContainerControls">
-                    <div class="ControlMovementContainer" width="400" height="270">
+                    <div class="ControlMovementContainer" width="270" height="270">
                         <svg class="ControlMovementOverlay" id="SendCordSvg" width="400" height="270" xmlns="http://www.w3.org/2000/svg">
                         </svg>
                         <svg class="ControlMovementOverlay" id="ToolDisplaySvg" width="400" height="270" xmlns="http://www.w3.org/2000/svg">
