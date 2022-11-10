@@ -514,10 +514,10 @@ function get_robot_help(){
 						t_commands = decodeURIComponent(t_commands)
 						alert(t_commands)
 
-				        var td_command_array = t_commands.split('=');
+				        var td_command_slice = t_commands.slice(13);
 				        alert(td_command_array.toString())
 
-						var t_command_array = td_command_array[1].split('/');
+						var t_command_array = td_command_slice.split('/');
                         alert(t_command_array.toString())
                         if ($.isArray(t_command_array))
                         {
