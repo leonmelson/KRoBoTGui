@@ -510,10 +510,11 @@ function get_robot_help(){
 
 					$('#terminaltextform').on('submit', function (e) {
 						e.preventDefault();
-				        let t_commands = $('#terminaltextform').serialize();
+				        var t_commands = $('#terminaltextform').serialize();
 						t_commands = decodeURIComponent(t_commands)
-				        let td_command_array = t_commands.split('=', 1);
-						let t_command_array = td_command_array[1].split('/');
+				        var td_command_array = t_commands.split('=', 1);
+				        alert(td_command_array)
+						var t_command_array = td_command_array[1].split('/');
 
                         if ($.isArray(t_command_array))
                         {
