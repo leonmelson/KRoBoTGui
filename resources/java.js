@@ -512,11 +512,14 @@ function get_robot_help(){
 						e.preventDefault();
 				        let t_commands = $('#terminaltextform').serialize();
 						t_commands = decodeURIComponent(t_commands)
+						alert(t_commands)
+
 						const t_commands_split = t_commands.split("=");
-				        const td_command_array = t_commands_split.slice(0, 1);
-				        alert(t_commands)
-				        alert(t_commands_split)
-				        alert(td_command_array.toString())
+						alert(t_commands_split)
+
+				        const td_command_slice = t_commands_split.slice(0, 1);
+				        alert(td_command_slice)
+
 						const t_command_array = td_command_array.split('/');
                         alert(t_command_array.toString())
                         if ($.isArray(t_command_array))
