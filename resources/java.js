@@ -515,7 +515,7 @@ function get_robot_help(){
 						alert(t_commands)
 
 				        var td_command_slice = t_commands.slice(13);
-				        alert(td_command_array.toString())
+				        alert(td_command_slice)
 
 						var t_command_array = td_command_slice.split('/');
                         alert(t_command_array.toString())
