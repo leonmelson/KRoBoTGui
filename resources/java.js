@@ -515,7 +515,7 @@ function get_robot_help(){
 						const t_commands_split = t_commands.split("=");
 				        const td_command_array = t_commands_split.slice(0, 1);
 				        alert(t_commands)
-				        alert(td_command_array.toString())
+				        alert(t_commands_split)
 				        alert(td_command_array.toString())
 						const t_command_array = td_command_array.split('/');
                         alert(t_command_array.toString())
