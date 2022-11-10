@@ -512,8 +512,10 @@ function get_robot_help(){
 						e.preventDefault();
 				        let t_commands = $('#terminaltextform').serialize();
 						t_commands = decodeURIComponent(t_commands)
-				        const td_command_array = t_commands.slice(t_commands.indexOf('-') + 1);
+						const t_commands_split = t_command.split("=");
+				        const td_command_array = t_commands_split.slice(0, 1);
 				        alert(t_commands)
+				        alert(td_command_array.toString())
 				        alert(td_command_array.toString())
 						const t_command_array = td_command_array.split('/');
                         alert(t_command_array.toString())
