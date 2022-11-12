@@ -10,6 +10,7 @@ function get_robot_help(){
 		url:api_url,
 		data: JSON.stringify(get_robot_help),
 		success:function(robot_help_data){
+		    console.log(robot_help_data)
 			$.each( robot_help_data["robots"], function( robot_names, robot_data ) {
 
 				 if(robot_data["active"] && robot_data["primary"]){
