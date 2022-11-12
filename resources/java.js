@@ -310,6 +310,17 @@ function get_robot_help(){
 							 success:function(data){
 							    var data_array = data[0];
 							    var getarray = {'UPDATEVALUES': {"sx": "", "rx": "", "sy": "", "ry": "", "sz": "", "rz": "", "FS": "", "PSF": "", "ESF": ""}};
+
+							    getarray['UPDATEVALUES']['sx'] = data_array['result']['status']['gcode_move']['gcode_position'][0];
+							    getarray['UPDATEVALUES']['rx'] = data_array['result']['status']['gcode_move']['position'][0];
+
+							    getarray['UPDATEVALUES']['sy'] = data_array['result']['status']['gcode_move']['gcode_position'][1];
+							    getarray['UPDATEVALUES']['ry'] = data_array['result']['status']['gcode_move']['position'][1];
+
+							    getarray['UPDATEVALUES']['sz'] = data_array['result']['status']['gcode_move']['gcode_position'][2];
+							    getarray['UPDATEVALUES']['rz'] = data_array['result']['status']['gcode_move']['position'][2];
+
+
 							    getarray['UPDATEVALUES']['FS'] = data_array['result']['status']['fan']['speed'];
 							    getarray['UPDATEVALUES']['PSF'] = data_array['result']['status']['gcode_move']['speed_factor'];
 							    getarray['UPDATEVALUES']['ESF'] = data_array['result']['status']['gcode_move']['extrude_factor'];
