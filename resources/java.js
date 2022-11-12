@@ -309,21 +309,18 @@ function get_robot_help(){
                             data: JSON.stringify(XYZ_data),
 							 success:function(data){
 							    var data_array = data[0];
-							    var getarray = {'UPDATEVALUES': {"sx": "", "rx": "", "sy": "", "ry": "", "sz": "", "rz": "", "FS": "", "PSF": "", "ESF": ""}};
+							    var getarray = {'UPDATEVALUES': {
+							    "sx": data_array['result']['status']['gcode_move']['gcode_position'][0],
+							    "rx": data_array['result']['status']['gcode_move']['position'][0],
+							    "sy": data_array['result']['status']['gcode_move']['gcode_position'][1],
+							    "ry": data_array['result']['status']['gcode_move']['position'][1],
+							    "sz": data_array['result']['status']['gcode_move']['gcode_position'][2],
+							    "rz": data_array['result']['status']['gcode_move']['position'][2],
+							    "FS": data_array['result']['status']['fan']['speed'],
+							    "PSF": data_array['result']['status']['gcode_move']['speed_factor'],
+							    "ESF": data_array['result']['status']['gcode_move']['extrude_factor']
+							    }};
 
-							    getarray['UPDATEVALUES']['sx'] = data_array['result']['status']['gcode_move']['gcode_position'][0];
-							    getarray['UPDATEVALUES']['rx'] = data_array['result']['status']['gcode_move']['position'][0];
-
-							    getarray['UPDATEVALUES']['sy'] = data_array['result']['status']['gcode_move']['gcode_position'][1];
-							    getarray['UPDATEVALUES']['ry'] = data_array['result']['status']['gcode_move']['position'][1];
-
-							    getarray['UPDATEVALUES']['sz'] = data_array['result']['status']['gcode_move']['gcode_position'][2];
-							    getarray['UPDATEVALUES']['rz'] = data_array['result']['status']['gcode_move']['position'][2];
-
-
-							    getarray['UPDATEVALUES']['FS'] = data_array['result']['status']['fan']['speed'];
-							    getarray['UPDATEVALUES']['PSF'] = data_array['result']['status']['gcode_move']['speed_factor'];
-							    getarray['UPDATEVALUES']['ESF'] = data_array['result']['status']['gcode_move']['extrude_factor'];
 								//console.log(getarray);
 								$("#ToolDisplaySvg").empty();
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
