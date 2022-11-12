@@ -314,9 +314,9 @@ function get_robot_help(){
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
 								var PreValue = ['FS', 'PSF', 'ESF'];
 								var ProbeLocation = getarray['PROBE'];
-								PSFVALUE = (getarray['UPDATEVALUES']['PSF']*100);
-								ESFVALUE = (getarray['UPDATEVALUES']['ESF']*100);
-								FSVALUE = (getarray['UPDATEVALUES']['FS']*100);
+								PSFVALUE = (getarray['result']['gcode_move']['speed_factor']*100);
+								ESFVALUE = (getarray['result']['gcode_move']['extrude_factor']*100);
+								FSVALUE = (getarray['result']['fan']['speed']*100);
 
 								PROGRESS = getarray['PROGRESS'];
 								if(KRoBoTState=="Busy")
