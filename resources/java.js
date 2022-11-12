@@ -10,7 +10,7 @@ function get_robot_help(){
 		url:api_url,
 		data: JSON.stringify(get_robot_help),
 		success:function(robot_help_data){
-		    console.log(robot_help_data)
+		    //console.log(robot_help_data)
 			$.each( robot_help_data["robots"], function( robot_names, robot_data ) {
 
 				 if(robot_data["active"] && robot_data["primary"]){
@@ -301,9 +301,14 @@ function get_robot_help(){
 					 }
 					TerminalSendCord();
 					function XYZData(){
+					    var get_klipper_api_info_params = {"klipper_api_method": "objects/query", "klipper_api_params": {"objects": {"gcode_move": ["gcode_position", "position", "absolute_coordinates", "speed_factor", "extrude_factor", "homing_origin"], "query_endstops": null, "system_stats": ["sysload","cputime"]}}};
+					    var XYZ_data = {"id": "123", "method": "get_klipper_api_info", "api_key": api_key, "robot": robot_name, "params": get_klipper_api_info_params};
 						 $.ajax({
-							 url:'XYZData.php', success:function(data){
-								//console.log(data);
+                            type: "POST",
+                            url:robot_api_url,
+                            data: JSON.stringify(XYZ_data),
+							 success:function(data){
+								console.log(data);
 								$("#ToolDisplaySvg").empty();
 								var getarray = jQuery.parseJSON(data);
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
