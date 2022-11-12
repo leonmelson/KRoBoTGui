@@ -309,7 +309,7 @@ function get_robot_help(){
                             data: JSON.stringify(XYZ_data),
 							 success:function(data){
 							    var getarray = data[0];
-								console.log(getarray);
+								//console.log(getarray);
 								$("#ToolDisplaySvg").empty();
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
 								var PreValue = ['FS', 'PSF', 'ESF'];
