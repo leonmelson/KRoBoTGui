@@ -301,7 +301,7 @@ function get_robot_help(){
 					 }
 					TerminalSendCord();
 					function XYZData(){
-					    var get_klipper_api_info_params = {"klipper_api_method": "objects/query", "klipper_api_params": {"objects": {"gcode_move": ["gcode_position", "position", "absolute_coordinates", "speed_factor", "extrude_factor", "homing_origin"], "query_endstops": null, "system_stats": ["sysload","cputime"]}}};
+					    var get_klipper_api_info_params = {"klipper_api_method": "objects/query", "klipper_api_params": {"objects": {"gcode_move": ["gcode_position", "position", "absolute_coordinates", "speed_factor", "extrude_factor", "homing_origin"], "query_endstops": null, "fan": ["speed"], "system_stats": ["sysload", "cputime"]}}};
 					    var XYZ_data = {"id": "123", "method": "get_klipper_api_info", "api_key": api_key, "robot": robot_name, "params": get_klipper_api_info_params};
 						 $.ajax({
                             type: "POST",
