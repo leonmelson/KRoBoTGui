@@ -364,8 +364,8 @@ function get_robot_help(){
 										   MoveLocation[Keyvalue] = "0.000";
 										}
 										else{
-											$('#' + Keyvalue).html(value);
-											MoveLocation[Keyvalue] = value;
+											$('#' + Keyvalue).html(value.toString());
+											MoveLocation[Keyvalue] = value.toString();
 
 										}
 									}
