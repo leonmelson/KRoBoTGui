@@ -501,7 +501,7 @@ function get_robot_help(){
 								}
 
 							 }, complete:function(data){
-								 setTimeout(function(){XYZData();}, 500);
+								 setTimeout(function(){XYZData();}, 2000);
 								}
 						 });
 					 }
