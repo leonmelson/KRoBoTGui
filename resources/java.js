@@ -308,15 +308,18 @@ function get_robot_help(){
                             url:robot_api_url,
                             data: JSON.stringify(XYZ_data),
 							 success:function(data){
-							    var getarray = data[0];
+							    var getarray;
+							    getarray['UPDATEVALUES']['FS'] = data[0]['result']['status']['fan']['speed'];
+							    getarray['UPDATEVALUES']['PSF'] = data[0]['result']['status']['gcode_move']['speed_factor'];
+							    getarray['UPDATEVALUES']['ESF'] = data[0]['result']['status']['gcode_move']['extrude_factor'];
 								//console.log(getarray);
 								$("#ToolDisplaySvg").empty();
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
 								var PreValue = ['FS', 'PSF', 'ESF'];
 								var ProbeLocation = getarray['PROBE'];
-								PSFVALUE = (getarray['result']['status']['gcode_move']['speed_factor']*100);
-								ESFVALUE = (getarray['result']['status']['gcode_move']['extrude_factor']*100);
-								FSVALUE = (getarray['result']['status']['fan']['speed']*100);
+								PSFVALUE = (getarray['UPDATEVALUES']['PSF']*100);
+								ESFVALUE = (getarray['UPDATEVALUES']['ESF']*100);
+								FSVALUE = (getarray['UPDATEVALUES']['FS']*100);
 
 								PROGRESS = getarray['PROGRESS'];
 								if(KRoBoTState=="Busy")
