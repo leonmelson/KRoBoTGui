@@ -300,207 +300,204 @@ function get_robot_help(){
 						 });
 					 }
 					TerminalSendCord();
-			        if(document.getElementById("ContainerInfoC") !== null)
-				    {
-                        function XYZData(){
-                            var get_klipper_api_info_params = {"klipper_api_method": "objects/query", "klipper_api_params": {"objects": {"gcode_move": ["gcode_position", "position", "absolute_coordinates", "speed_factor", "extrude_factor", "homing_origin"], "fan": ["speed"]}}};
-                            var XYZ_data = {"id": "123", "method": "get_klipper_api_info", "api_key": api_key, "robot": robot_name, "params": get_klipper_api_info_params};
-                             $.ajax({
-                                type: "POST",
-                                url:robot_api_url,
-                                data: JSON.stringify(XYZ_data),
-                                 success:function(data){
-                                    var data_array = data[0];
-                                    var getarray = {'UPDATEVALUES': {"sx": "", "rx": "", "sy": "", "ry": "", "sz": "", "rz": "", "FS": "", "PSF": "", "ESF": ""}};
-                                    getarray['UPDATEVALUES']['FS'] = data_array['result']['status']['fan']['speed'];
-                                    getarray['UPDATEVALUES']['PSF'] = data_array['result']['status']['gcode_move']['speed_factor'];
-                                    getarray['UPDATEVALUES']['ESF'] = data_array['result']['status']['gcode_move']['extrude_factor'];
-                                    //console.log(getarray);
-                                    $("#ToolDisplaySvg").empty();
-                                    var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
-                                    var PreValue = ['FS', 'PSF', 'ESF'];
-                                    var ProbeLocation = getarray['PROBE'];
-                                    PSFVALUE = (getarray['UPDATEVALUES']['PSF']*100);
-                                    ESFVALUE = (getarray['UPDATEVALUES']['ESF']*100);
-                                    FSVALUE = (getarray['UPDATEVALUES']['FS']*100);
+					function XYZData(){
+					    var get_klipper_api_info_params = {"klipper_api_method": "objects/query", "klipper_api_params": {"objects": {"gcode_move": ["gcode_position", "position", "absolute_coordinates", "speed_factor", "extrude_factor", "homing_origin"], "query_endstops": null, "fan": ["speed"], "system_stats": ["sysload", "cputime"]}}};
+					    var XYZ_data = {"id": "123", "method": "get_klipper_api_info", "api_key": api_key, "robot": robot_name, "params": get_klipper_api_info_params};
+						 $.ajax({
+                            type: "POST",
+                            url:robot_api_url,
+                            data: JSON.stringify(XYZ_data),
+							 success:function(data){
+							    var data_array = data[0];
+							    var getarray = {'UPDATEVALUES': {"sx": "", "rx": "", "sy": "", "ry": "", "sz": "", "rz": "", "FS": "", "PSF": "", "ESF": ""}};
+							    getarray['UPDATEVALUES']['FS'] = data_array['result']['status']['fan']['speed'];
+							    getarray['UPDATEVALUES']['PSF'] = data_array['result']['status']['gcode_move']['speed_factor'];
+							    getarray['UPDATEVALUES']['ESF'] = data_array['result']['status']['gcode_move']['extrude_factor'];
+								//console.log(getarray);
+								$("#ToolDisplaySvg").empty();
+								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
+								var PreValue = ['FS', 'PSF', 'ESF'];
+								var ProbeLocation = getarray['PROBE'];
+								PSFVALUE = (getarray['UPDATEVALUES']['PSF']*100);
+								ESFVALUE = (getarray['UPDATEVALUES']['ESF']*100);
+								FSVALUE = (getarray['UPDATEVALUES']['FS']*100);
 
-                                    PROGRESS = getarray['PROGRESS'];
-                                    if(KRoBoTState=="Busy")
-                                    {
-                                      if(PROGRESS > 0){
-                                        document.title = 'KRoBoT ' + PROGRESS + '%';
-                                        $('#KRoBoTHome').attr('title', KRoBoTName + " " + PROGRESS + '%');
-                                      }
-                                    }
-                                    //$('#FS').val(GetXYZData['UPDATEVALUES']['FS']*100);
-                                    //$('#PSF').val(GetXYZData['UPDATEVALUES']['PSF']*100);
-                                    //$('#ESF').val(GetXYZData['UPDATEVALUES']['ESF']*100);
-                                    $.each( getarray['UPDATEVALUES'], function( key, value ) {
-                                        var Keyvalue = key.toLowerCase();
-                                        if(key == 'FS' || key == 'PSF' || key == 'ESF'){
-                                            if(value == ""){
-                                               $('#' + Keyvalue).text("0%");
-                                               $('#busy' + Keyvalue).text("0%");
-                                               $('#' + Keyvalue).val(Math.round((value*100)));
-                                            }
-                                            else{
-                                                if(PreValue[key] != value)
-                                                {
-                                                  $('#' + Keyvalue).html(Math.round((value*100)) + "%");
-                                                  $('#busy' + Keyvalue).html(Math.round((value*100)) + "%");
-                                                }
+								PROGRESS = getarray['PROGRESS'];
+								if(KRoBoTState=="Busy")
+								{
+								  if(PROGRESS > 0){
+									document.title = 'KRoBoT ' + PROGRESS + '%';
+									$('#KRoBoTHome').attr('title', KRoBoTName + " " + PROGRESS + '%');
+								  }
+								}
+								//$('#FS').val(GetXYZData['UPDATEVALUES']['FS']*100);
+								//$('#PSF').val(GetXYZData['UPDATEVALUES']['PSF']*100);
+								//$('#ESF').val(GetXYZData['UPDATEVALUES']['ESF']*100);
+								$.each( getarray['UPDATEVALUES'], function( key, value ) {
+									var Keyvalue = key.toLowerCase();
+									if(key == 'FS' || key == 'PSF' || key == 'ESF'){
+										if(value == ""){
+										   $('#' + Keyvalue).text("0%");
+										   $('#busy' + Keyvalue).text("0%");
+										   $('#' + Keyvalue).val(Math.round((value*100)));
+										}
+										else{
+											if(PreValue[key] != value)
+											{
+											  $('#' + Keyvalue).html(Math.round((value*100)) + "%");
+											  $('#busy' + Keyvalue).html(Math.round((value*100)) + "%");
+											}
 
-                                            }
-                                        }
-                                        else{
-                                            if(value == ""){
-                                               $('#' + Keyvalue).text("0.000");
-                                               MoveLocation[Keyvalue] = "0.000";
-                                            }
-                                            else{
-                                                $('#' + Keyvalue).html(value);
-                                                MoveLocation[Keyvalue] = value;
+										}
+									}
+									else{
+										if(value == ""){
+										   $('#' + Keyvalue).text("0.000");
+										   MoveLocation[Keyvalue] = "0.000";
+										}
+										else{
+											$('#' + Keyvalue).html(value);
+											MoveLocation[Keyvalue] = value;
 
-                                            }
-                                        }
-                                        if(key == 'B'){
-                                            var BEDTEMP = value.split("/");
-                                            BEDTOTEMP = BEDTEMP[1];
+										}
+									}
+									if(key == 'B'){
+										var BEDTEMP = value.split("/");
+										BEDTOTEMP = BEDTEMP[1];
 
-                                            if(BEDTOTEMP == ""){
-                                                $('#busybt').text("0.00");
-                                             }
-                                             else{
-                                                 $('#busybt').html(BEDTOTEMP);
-                                             }
-                                        }
-                                        if(key == 'T'){
-                                            var TEMP = value.split("/");
-                                            TOTEMP = TEMP[1];
-                                            if(TOTEMP == ""){
-                                                $('#busyet').text("0.00");
-                                             }
-                                             else{
-                                                 $('#busyet').html(TOTEMP);
-                                             }
-                                        }
-                                        if(key == 'GCOZ'){
-                                          if(TOTEMP == ""){
-                                              $('#busyzo').text("0.00");
-                                           }
-                                           else{
-                                               $('#busyzo').html(value);
-                                           }
-                                        }
-                                        PreValue[key] = value;
-                                    });
-                                    var ProbeTextColor;
-                                    var ProbeHeightArray = new Array();
-                                    if(typeof ProbeLocation === 'object')
-                                    {
-                                        $.each( getarray['PROBE'], function( ProbeKey, ProbeArray ) {
-                                            //alert(ProbeArray['X']);
-                                            if(ProbeArray['Z'] > 0){
-                                                ProbeTextColor = 'blue';
-                                            }
-                                            else if(ProbeArray['Z'] < 0){
-                                                ProbeTextColor = 'red';
-                                            }
-                                            else{
-                                                ProbeTextColor = 'green';
-                                            }
-                                            if(ProbeArray['Z'] != ""){
-                                                ProbeHeightArray.push(ProbeArray['Z']);
-                                            }
+										if(BEDTOTEMP == ""){
+											$('#busybt').text("0.00");
+										 }
+										 else{
+											 $('#busybt').html(BEDTOTEMP);
+										 }
+									}
+									if(key == 'T'){
+										var TEMP = value.split("/");
+										TOTEMP = TEMP[1];
+										if(TOTEMP == ""){
+											$('#busyet').text("0.00");
+										 }
+										 else{
+											 $('#busyet').html(TOTEMP);
+										 }
+									}
+									if(key == 'GCOZ'){
+									  if(TOTEMP == ""){
+										  $('#busyzo').text("0.00");
+									   }
+									   else{
+										   $('#busyzo').html(value);
+									   }
+									}
+									PreValue[key] = value;
+								});
+								var ProbeTextColor;
+								var ProbeHeightArray = new Array();
+								if(typeof ProbeLocation === 'object')
+								{
+									$.each( getarray['PROBE'], function( ProbeKey, ProbeArray ) {
+										//alert(ProbeArray['X']);
+										if(ProbeArray['Z'] > 0){
+											ProbeTextColor = 'blue';
+										}
+										else if(ProbeArray['Z'] < 0){
+											ProbeTextColor = 'red';
+										}
+										else{
+											ProbeTextColor = 'green';
+										}
+										if(ProbeArray['Z'] != ""){
+											ProbeHeightArray.push(ProbeArray['Z']);
+										}
 
-                                            const ProbePoints = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                                            ProbePoints.setAttribute('cx', ProbeArray['X']);
-                                            ProbePoints.setAttribute('cy', ProbeArray['Y']);
-                                            ProbePoints.setAttribute("r", "2");
-                                            ProbePoints.setAttribute("fill", "white");
+										const ProbePoints = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+										ProbePoints.setAttribute('cx', ProbeArray['X']);
+										ProbePoints.setAttribute('cy', ProbeArray['Y']);
+										ProbePoints.setAttribute("r", "2");
+										ProbePoints.setAttribute("fill", "white");
 
-                                            const ProbePointsZ = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                                            ProbePointsZ.setAttribute('x', ProbeArray['X']);
-                                            ProbePointsZ.setAttribute('y', ProbeArray['Y']);
-                                            ProbePointsZ.setAttribute("fill", ProbeTextColor);
-                                            ProbePointsZ.setAttribute("font-size", "10");
-                                            ProbePointsZ.textContent = ProbeArray['Z'];
+										const ProbePointsZ = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+										ProbePointsZ.setAttribute('x', ProbeArray['X']);
+										ProbePointsZ.setAttribute('y', ProbeArray['Y']);
+										ProbePointsZ.setAttribute("fill", ProbeTextColor);
+										ProbePointsZ.setAttribute("font-size", "10");
+										ProbePointsZ.textContent = ProbeArray['Z'];
 
-                                            ToolDisplaySvg.appendChild(ProbePoints);
-                                            ToolDisplaySvg.appendChild(ProbePointsZ);
-                                        });
-                                        // console.log(ProbeHeightArray);
-                                        if(ProbeHeightArray !== null){
-                                            var MaxMin = parseFloat(Math.max(...ProbeHeightArray)-Math.min(...ProbeHeightArray));
-                                            const ProbeMaxMin = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                                            ProbeMaxMin.setAttribute('x', '15');
-                                            ProbeMaxMin.setAttribute('y', '15');
-                                            ProbeMaxMin.setAttribute("fill", 'black');
-                                            ProbeMaxMin.setAttribute("font-size", "15");
-                                            ProbeMaxMin.textContent = "Max-Min=" + MaxMin;
-                                            ToolDisplaySvg.appendChild(ProbeMaxMin);
-                                        }
-                                    }
-                                    if(document.getElementById("ToolDisplaySvg") !== null)
-                                    {
-                                        if(SvgOffsetValue>0)
-                                        {
-                                            MoveLocation['rx'] = parseFloat(MoveLocation['rx']);
-                                            MoveLocation['ry'] = parseFloat(MoveLocation['ry']);
-                                            MoveLocation['sx'] = parseFloat(MoveLocation['sx']);
-                                            MoveLocation['sy'] = parseFloat(MoveLocation['sy']);
-                                        }
-                                        if(MoveLocation['rx']  && MoveLocation['ry'])
-                                        {
-                                            // create a circle
-                                            const scir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                                            scir.setAttribute("cx", MoveLocation['ry']);
-                                            scir.setAttribute("cy", MoveLocation['rx']);
-                                            scir.setAttribute("r", "2");
-                                            scir.setAttribute("fill", "yellow");
+										ToolDisplaySvg.appendChild(ProbePoints);
+										ToolDisplaySvg.appendChild(ProbePointsZ);
+									});
+									// console.log(ProbeHeightArray);
+									if(ProbeHeightArray !== null){
+										var MaxMin = parseFloat(Math.max(...ProbeHeightArray)-Math.min(...ProbeHeightArray));
+										const ProbeMaxMin = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+										ProbeMaxMin.setAttribute('x', '15');
+										ProbeMaxMin.setAttribute('y', '15');
+										ProbeMaxMin.setAttribute("fill", 'black');
+										ProbeMaxMin.setAttribute("font-size", "15");
+										ProbeMaxMin.textContent = "Max-Min=" + MaxMin;
+										ToolDisplaySvg.appendChild(ProbeMaxMin);
+									}
+								}
+								if(document.getElementById("ToolDisplaySvg") !== null)
+								{
+									if(SvgOffsetValue>0)
+									{
+										MoveLocation['rx'] = parseFloat(MoveLocation['rx']);
+										MoveLocation['ry'] = parseFloat(MoveLocation['ry']);
+										MoveLocation['sx'] = parseFloat(MoveLocation['sx']);
+										MoveLocation['sy'] = parseFloat(MoveLocation['sy']);
+									}
+									if(MoveLocation['rx']  && MoveLocation['ry'])
+									{
+										// create a circle
+										const scir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+										scir.setAttribute("cx", MoveLocation['ry']);
+										scir.setAttribute("cy", MoveLocation['rx']);
+										scir.setAttribute("r", "2");
+										scir.setAttribute("fill", "yellow");
 
-                                            // attach it to the container
-                                            ToolDisplaySvg.appendChild(scir);
+										// attach it to the container
+										ToolDisplaySvg.appendChild(scir);
 
-                                        }
-                                        if(MoveLocation['sx']  && MoveLocation['sy'])
-                                        {
-                                            // create a circle
-                                            const rcir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                                            rcir.setAttribute("cx", MoveLocation['sy']);
-                                            rcir.setAttribute("cy", MoveLocation['sx']);
-                                            rcir.setAttribute("r", "2");
-                                            rcir.setAttribute("fill", "blue");
+									}
+									if(MoveLocation['sx']  && MoveLocation['sy'])
+									{
+										// create a circle
+										const rcir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+										rcir.setAttribute("cx", MoveLocation['sy']);
+										rcir.setAttribute("cy", MoveLocation['sx']);
+										rcir.setAttribute("r", "2");
+										rcir.setAttribute("fill", "blue");
 
-                                            // attach it to the container
-                                            ToolDisplaySvg.appendChild(rcir);
-                                        }
+										// attach it to the container
+										ToolDisplaySvg.appendChild(rcir);
+									}
 
-                                        var Endstop = '';
-                                        $.each( getarray['ENDSTOP'], function( EndstopKey, EndstopValue ) {
-                                             Endstop = Endstop + EndstopKey.toUpperCase() + " = " + EndstopValue + "<br>";
-                                            });
-                                        $('#endstops').html(Endstop);
+									var Endstop = '';
+									$.each( getarray['ENDSTOP'], function( EndstopKey, EndstopValue ) {
+										 Endstop = Endstop + EndstopKey.toUpperCase() + " = " + EndstopValue + "<br>";
+										});
+									$('#endstops').html(Endstop);
 
-                                        //Zero Location
-                                        // create a circle
-                                        const zcir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                                        zcir.setAttribute("cx", 0);
-                                        zcir.setAttribute("cy", 0);
-                                        zcir.setAttribute("r", "3");
-                                        zcir.setAttribute("fill", "green");
+									//Zero Location
+									// create a circle
+									const zcir = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+									zcir.setAttribute("cx", 0);
+									zcir.setAttribute("cy", 0);
+									zcir.setAttribute("r", "3");
+									zcir.setAttribute("fill", "green");
 
-                                        // attach it to the container
-                                        ToolDisplaySvg.appendChild(zcir);
-                                    }
+									// attach it to the container
+									ToolDisplaySvg.appendChild(zcir);
+								}
 
-                                 }, complete:function(data){
-                                     setTimeout(function(){XYZData();}, 2000);
-                                    }
-                             });
-                         }
-                        XYZData();
-                    }
+							 }, complete:function(data){
+								 setTimeout(function(){XYZData();}, 500);
+								}
+						 });
+					 }
+					XYZData();
 				}
 				setInterval(PushCommand, 10000);
 				function PushCommand() {
