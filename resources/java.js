@@ -4,8 +4,11 @@ var robot_name = "";
 var robot_api_url = "";
 
 function get_robot_help(){
+    var get_robot_help = {"id": "123", "method": "get_help"};
 	 $.ajax({
-		url:api_url + '?id=123&method=get_help',
+	    type: "POST",
+		url:api_url,
+		data: JSON.stringify(get_robot_help),
 		success:function(robot_help_data){
 			$.each( robot_help_data["robots"], function( robot_names, robot_data ) {
 
