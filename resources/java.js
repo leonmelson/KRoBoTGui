@@ -310,12 +310,12 @@ function get_robot_help(){
 							 success:function(data){
 							    var data_array = data[0];
 							    var getarray = {'UPDATEVALUES': {
-							    "sx": data_array['result']['status']['gcode_move']['gcode_position'][0],
-							    "rx": data_array['result']['status']['gcode_move']['position'][0],
-							    "sy": data_array['result']['status']['gcode_move']['gcode_position'][1],
-							    "ry": data_array['result']['status']['gcode_move']['position'][1],
-							    "sz": data_array['result']['status']['gcode_move']['gcode_position'][2],
-							    "rz": data_array['result']['status']['gcode_move']['position'][2],
+							    "sx": data_array['result']['status']['gcode_move']['gcode_position'][0].toFixed(3),
+							    "rx": data_array['result']['status']['gcode_move']['position'][0].toFixed(3),
+							    "sy": data_array['result']['status']['gcode_move']['gcode_position'][1].toFixed(3),
+							    "ry": data_array['result']['status']['gcode_move']['position'][1].toFixed(3),
+							    "sz": data_array['result']['status']['gcode_move']['gcode_position'][2].toFixed(3),
+							    "rz": data_array['result']['status']['gcode_move']['position'][2].toFixed(3),
 							    "FS": data_array['result']['status']['fan']['speed'],
 							    "PSF": data_array['result']['status']['gcode_move']['speed_factor'],
 							    "ESF": data_array['result']['status']['gcode_move']['extrude_factor']
