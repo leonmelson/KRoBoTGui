@@ -489,7 +489,7 @@ function get_robot_help(){
 								}
 
 							 }, complete:function(data){
-								 setTimeout(function(){XYZData();}, 250);
+								 setTimeout(function(){XYZData();}, 1000);
 								}
 						 });
 					 }
