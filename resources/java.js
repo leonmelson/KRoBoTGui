@@ -314,8 +314,8 @@ function get_robot_help(){
 							    "rx": data_array['result']['status']['gcode_move']['position'][0].toFixed(3),
 							    "sy": data_array['result']['status']['gcode_move']['gcode_position'][1].toFixed(3),
 							    "ry": data_array['result']['status']['gcode_move']['position'][1].toFixed(3),
-							    "sz": data_array['result']['status']['gcode_move']['gcode_position'][2],
-							    "rz": data_array['result']['status']['gcode_move']['position'][2],
+							    "sz": data_array['result']['status']['gcode_move']['gcode_position'][2].toString(),
+							    "rz": data_array['result']['status']['gcode_move']['position'][2].toString(),
 							    "FS": data_array['result']['status']['fan']['speed'],
 							    "PSF": data_array['result']['status']['gcode_move']['speed_factor'],
 							    "ESF": data_array['result']['status']['gcode_move']['extrude_factor']
@@ -364,8 +364,8 @@ function get_robot_help(){
 										   MoveLocation[Keyvalue] = "0.000";
 										}
 										else{
-											$('#' + Keyvalue).html(value.toString());
-											MoveLocation[Keyvalue] = value.toString();
+											$('#' + Keyvalue).html(value);
+											MoveLocation[Keyvalue] = value;
 
 										}
 									}
