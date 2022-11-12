@@ -309,7 +309,7 @@ function get_robot_help(){
                             data: JSON.stringify(XYZ_data),
 							 success:function(data){
 							    var data_array = data[0];
-							    var getarray = {'UPDATEVALUES': ["FS", "PSF", "ESF"]};
+							    var getarray = {'UPDATEVALUES': {"FS": "", "PSF": "", "ESF": ""}};
 							    getarray['UPDATEVALUES']['FS'] = data_array['result']['status']['fan']['speed'];
 							    getarray['UPDATEVALUES']['PSF'] = data_array['result']['status']['gcode_move']['speed_factor'];
 							    getarray['UPDATEVALUES']['ESF'] = data_array['result']['status']['gcode_move']['extrude_factor'];
