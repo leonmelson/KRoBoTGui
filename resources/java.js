@@ -307,10 +307,9 @@ function get_robot_help(){
                             type: "POST",
                             url:robot_api_url,
                             data: JSON.stringify(XYZ_data),
-							 success:function(data){
-								console.log(data);
+							 success:function(getarray){
+								console.log(getarray);
 								$("#ToolDisplaySvg").empty();
-								var getarray = jQuery.parseJSON(data);
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
 								var PreValue = ['FS', 'PSF', 'ESF'];
 								var ProbeLocation = getarray['PROBE'];
