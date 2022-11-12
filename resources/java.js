@@ -308,10 +308,11 @@ function get_robot_help(){
                             url:robot_api_url,
                             data: JSON.stringify(XYZ_data),
 							 success:function(data){
-							    var getarray;
-							    getarray['UPDATEVALUES']['FS'] = data[0]['result']['status']['fan']['speed'];
-							    getarray['UPDATEVALUES']['PSF'] = data[0]['result']['status']['gcode_move']['speed_factor'];
-							    getarray['UPDATEVALUES']['ESF'] = data[0]['result']['status']['gcode_move']['extrude_factor'];
+							    var data_array = data[0];
+							    var getarray = {'UPDATEVALUES': ["FS", "PSF", "ESF"]};
+							    getarray['UPDATEVALUES']['FS'] = data_array['result']['status']['fan']['speed'];
+							    getarray['UPDATEVALUES']['PSF'] = data_array['result']['status']['gcode_move']['speed_factor'];
+							    getarray['UPDATEVALUES']['ESF'] = data_array['result']['status']['gcode_move']['extrude_factor'];
 								//console.log(getarray);
 								$("#ToolDisplaySvg").empty();
 								var MoveLocation = ['sx', 'sy', 'rx', 'ry'];
