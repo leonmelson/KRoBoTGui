@@ -495,7 +495,7 @@ function get_robot_help(){
                                     }
 
                                  }, complete:function(data){
-                                     setTimeout(function(){XYZData();}, 1000);
+                                     setTimeout(function(){XYZData();}, 2000);
                                     }
                              });
                          }
