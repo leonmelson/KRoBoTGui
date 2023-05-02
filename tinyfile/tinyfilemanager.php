@@ -15,11 +15,11 @@ function curlPost($url, $data) {
 
     return $response;
 }
-$url = 'http://192.168.0.52:5432/api';
+$url = 'http://192.168.1.52:5432/api';
 $get_help_data = ['id' => '123', 'method' => 'get_help'];
 $get_help = json_decode(curlPost($url, json_encode($get_help_data)), true);
 $path_to_uploads = $_SERVER['HTTP_HOST']."/uploads/";
-$api_key = '9ca5473290852d5320640a5fcb79e068';
+$api_key = 'e08c2d449e5272edfe3315fe1cc83eb0';
 
 //Default Configuration
 $CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":false,"calc_folder":false,"theme":"light"}';
