@@ -1,5 +1,5 @@
-var api_key = '9ca5473290852d5320640a5fcb79e068';
-var api_url = 'http://192.168.0.52:5432/api';
+var api_key = 'e08c2d449e5272edfe3315fe1cc83eb0';
+var api_url = 'http://192.168.1.52:5432/api';
 var robot_name = "";
 var robot_api_url = "";
 
