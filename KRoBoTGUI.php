@@ -1185,7 +1185,7 @@ if(empty($PageState))
             <div class="StateCommand" data-ccommand="RESUME">
                 RESUME
             </div>-->
-            <div class="StateCommand" data-ccommand="CANCEL">
+            <div class="StateCommand" data-commands="CANCEL" data-commands-type="emergency" data-coms-type="serial">
                 CANCEL
             </div>
         </div>
